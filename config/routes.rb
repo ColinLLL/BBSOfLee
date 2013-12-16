@@ -1,9 +1,20 @@
 BBSOfLee::Application.routes.draw do
+  get "sessios/new"
+  get "sessios/create"
+  get "sessios/destroy"
+  get "admin/index"
   resources :signins
 
   resources :logins
+  resources :sessions
 
   resources :users
+  #resources :seesios, :only => 
+  controller :sessios do
+    get 'Login' => :new
+    post 'Login' => :create
+    delete 'logout' => :destroy
+  end
   root to: "welcome#index"
   #get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.

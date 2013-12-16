@@ -25,16 +25,18 @@ class SigninsController < ApplicationController
   # POST /signins.json
   def create
     @signin = Signin.new(signin_params)
+
     email = @signin.email
     password = @signin.password
+    user = User.find_by_name(params[:email])
 
-    #respond_to do |format|
-      if User.where(email: email, password: password).take!
+    respond_to do |format|
+      if user and user.authenticate(params[:password])
         redirect_to @signin
       else
         render 'new'
       end
-    #end
+    end
   end
 
   # PATCH/PUT /signins/1

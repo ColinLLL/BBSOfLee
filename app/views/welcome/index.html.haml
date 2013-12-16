@@ -6,19 +6,12 @@
         %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
           %meta{:content => "", :name => "description"}
             %meta{:content => "", :name => "author"}
-              %link{:href => "../../docs-assets/ico/favicon.png", :rel => "shortcut icon"}
+              %link{:href => "//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css", :rel => "shortcut icon"}
                 %title Off Canvas Template for Bootstrap
                 / Bootstrap core CSS
                 %link{:href => "//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css", :rel => "stylesheet"}
                 %link{:href => "//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css", :rel => "stylesheet"}
-                  / Custom styles for this template
-                  %link{:href => "offcanvas.css", :rel => "stylesheet"}
-                    / Just for debugging purposes. Don't actually copy this line!
-                    /[if lt IE 9] <script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script>
-                    / HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
-                    /[if lt IE 9]
-                      %script{:src => "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"}
-                      %script{ :src => "https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"}
+                %link{:href => "offcanvas.css", :rel => "stylesheet"}
   %body
     .navbar.navbar-fixed-top.navbar-inverse{:role => "navigation"}
       .container
@@ -37,6 +30,12 @@
               %a{:href => "#about"} About
             %li
               %a{:href => "#contact"} Contact
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li.active
+              %a{:href => "../signins/new"} Login
+            %li
+              %a{:href => "../users/new"} Register
         / /.nav-collapse
       / /.container
     / /.navbar
@@ -87,18 +86,6 @@
             / /span
           / /row
         / /span
-        #sidebar.col-xs-6.col-sm-3.sidebar-offcanvas{:role => "navigation"}
-          .list-group
-            %a.list-group-item.active{:href => "#"} Link
-            %a.list-group-item{:href => "../signins/new"} Login
-            %a.list-group-item{:href => "../users/new"} Register
-            %a.list-group-item{:href => "#"} Link
-            %a.list-group-item{:href => "#"} Link
-            %a.list-group-item{:href => "#"} Link
-            %a.list-group-item{:href => "#"} Link
-            %a.list-group-item{:href => "#"} Link
-            %a.list-group-item{:href => "#"} Link
-            %a.list-group-item{:href => "#"} Link
         / /span
       / /row
       %hr
