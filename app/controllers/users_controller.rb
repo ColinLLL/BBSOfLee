@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user].permit(:email, :password))
     if @user.save
+      UserMailer.registration_confirmation(@user).deliver
       redirect_to @user
     else
       render 'new'

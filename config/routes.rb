@@ -1,4 +1,8 @@
 BBSOfLee::Application.routes.draw do
+  resources :signins
+
+  resources :logins
+
   resources :users
   root to: "welcome#index"
   #get "welcome/index"
