@@ -46,16 +46,21 @@
           %li= msg
   %fieldset
     %legend Enter User Details
-    %div
+    .form-group
       = f.label :username
-      = f.text_field :username, size: 40
-    %div
+      .form-control
+        = f.text_field :username, size: 40
+    .form-group
       = f.label :email
-      = f.text_field :email, size: 40
-    %div
+      .form-control
+        = f.text_field :email, size: 40
+    .form-group
       = f.label :password, 'Password'
-      = f.password_field :password, size: 40
-    %div 
+      .form-control
+        = f.password_field :password, size: 40
+    .checkbox
+      %input{:type => "checkbox"} Check me out
+    .form-group 
       = f.submit "Register"
   
 = link_to 'Back', users_path

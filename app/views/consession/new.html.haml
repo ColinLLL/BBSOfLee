@@ -40,13 +40,23 @@
   = form_tag do
     %fieldset
       %legend Enter User Information
-      %div
+      .form-group
+        /.col-xs-12.col-sm-9
+        /.form-group
         = label_tag :email, 'Email'
-        = text_field_tag :email
-      %div
+        /.col-xs-12.col-sm-9
+        .form-control
+          = text_field_tag :email
+      .form-group
+        /.col-xs-12.col-sm-9
+        /.form-group
         = label_tag :password, 'Password'
-        = password_field_tag :password
-      %div 
+        /.col-xs-12.col-sm-9
+        .form-control.active
+          = password_field_tag :password
+      .checkbox
+      %input{:type => "checkbox"} Remember me
+      .form-group 
         = submit_tag "Login"
   
 = link_to 'Back', users_path
