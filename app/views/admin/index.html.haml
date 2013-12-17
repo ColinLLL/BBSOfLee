@@ -35,6 +35,12 @@
                   %a{:href => "#"} Separated link
                 %li
                   %a{:href => "#"} One more separated link
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li.active
+              %a{:href => "../consession/new"} Login
+            %li
+              %a{:href => "#"} Logout
     /
       Carousel
       \==================================================
@@ -145,11 +151,3 @@
                   %a{:href => "#"} Privacy
                   \&middot;
                   %a{:href => "#"} Terms
-    / /.container
-    /
-      Bootstrap core JavaScript
-      \==================================================
-    / Placed at the end of the document so the pages load faster
-    %script{:src => "https://code.jquery.com/jquery-1.10.2.min.js"}
-    %script{:src => "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"}
-    %script{:src => "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/holder.js"}

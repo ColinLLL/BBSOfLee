@@ -14,7 +14,7 @@
                 %link{:href => "offcanvas.css", :rel => "stylesheet"}
   %body
     .navbar.navbar-fixed-top.navbar-inverse{:role => "navigation"}
-      .container-fluid
+      .container
         .navbar-header
           %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
             %span.sr-only Toggle navigation
@@ -39,63 +39,110 @@
         / /.nav-collapse
       / /.container
     / /.navbar
-    .container
-      .row.row-offcanvas.row-offcanvas-right
-        .col-xs-12.col-sm-9
-          %p.pull-right.visible-xs
-            %button.btn.btn-primary.btn-xs{"data-toggle" => "offcanvas", :type => "button"} Toggle nav
-          .jumbotron
-            %h1 Hello, world!
-            %p This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.
-          .row
-            .col-6.col-sm-6.col-lg-4
-              %h2 Heading
-              %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              %p
-                %a.btn.btn-default{:href => "#", :role => "button"} View details &raquo;
-            / /span
-            .col-6.col-sm-6.col-lg-4
-              %h2 Heading
-              %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              %p
-                %a.btn.btn-default{:href => "#", :role => "button"} View details &raquo;
-            / /span
-            .col-6.col-sm-6.col-lg-4
-              %h2 Heading
-              %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              %p
-                %a.btn.btn-default{:href => "#", :role => "button"} View details &raquo;
-            / /span
-            .col-6.col-sm-6.col-lg-4
-              %h2 Heading
-              %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              %p
-                %a.btn.btn-default{:href => "#", :role => "button"} View details &raquo;
-            / /span
-            .col-6.col-sm-6.col-lg-4
-              %h2 Heading
-              %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              %p
-                %a.btn.btn-default{:href => "#", :role => "button"} View details &raquo;
-            / /span
-            .col-6.col-sm-6.col-lg-4
-              %h2 Heading
-              %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              %p
-                %a.btn.btn-default{:href => "#", :role => "button"} View details &raquo;
-            / /span
-          / /row
-        / /span
-        / /span
-      / /row
-      %hr
-        %footer
-          %p &copy; Company 2013
-    / /.container
+    #myCarousel.carousel.slide{"data-ride" => "carousel"}
+      / Indicators
+      %ol.carousel-indicators
+        %li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
+        %li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
+        %li{"data-slide-to" => "2", "data-target" => "#myCarousel"}
+      .carousel-inner
+        .item.active
+          %img{:alt => "First slide", "data-src" => "holder.js/900x500/auto/#777:#7a7a7a/text:First slide"}
+            .container
+              .carousel-caption
+                %h1 Example headline.
+                %p
+                  Note: If you're viewing this page via a
+                  %code file://
+                  URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.
+                %p
+                  %a.btn.btn-lg.btn-primary{:href => "#", :role => "button"} Sign up today
+        .item
+          %img{:alt => "Second slide", "data-src" => "holder.js/900x500/auto/#666:#6a6a6a/text:Second slide"}
+            .container
+              .carousel-caption
+                %h1 Another example headline.
+                %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                %p
+                  %a.btn.btn-lg.btn-primary{:href => "#", :role => "button"} Learn more
+        .item
+          %img{:alt => "Third slide", "data-src" => "holder.js/900x500/auto/#555:#5a5a5a/text:Third slide"}
+            .container
+              .carousel-caption
+                %h1 One more for good measure.
+                %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                %p
+                  %a.btn.btn-lg.btn-primary{:href => "#", :role => "button"} Browse gallery
+      %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel"}
+        %span.glyphicon.glyphicon-chevron-left
+      %a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel"}
+        %span.glyphicon.glyphicon-chevron-right
+    / /.carousel
     /
-      Bootstrap core JavaScript
+      Marketing messaging and featurettes
       \==================================================
-    / Placed at the end of the document so the pages load faster
-    %script{:src => "https://code.jquery.com/jquery.js"}
-    %script{:src => "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"}
-    %script{:src => "offcanvas.js"}
+    / Wrap the rest of the page in another container to center all the content.
+    .container.marketing
+      / Three columns of text below the carousel
+      .row
+        .col-lg-4
+          %img.img-circle{:alt => "Generic placeholder image", "data-src" => "holder.js/140x140"}
+            %h2 Heading
+            %p Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
+            %p
+              %a.btn.btn-default{:href => "#", :role => "button"} View details &raquo;
+        / /.col-lg-4
+        .col-lg-4
+          %img.img-circle{:alt => "Generic placeholder image", "data-src" => "holder.js/140x140"}
+            %h2 Heading
+            %p Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
+            %p
+              %a.btn.btn-default{:href => "#", :role => "button"} View details &raquo;
+        / /.col-lg-4
+        .col-lg-4
+          %img.img-circle{:alt => "Generic placeholder image", "data-src" => "holder.js/140x140"}
+            %h2 Heading
+            %p Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+            %p
+              %a.btn.btn-default{:href => "#", :role => "button"} View details &raquo;
+        / /.col-lg-4
+      / /.row
+      / START THE FEATURETTES
+      %hr.featurette-divider
+        .row.featurette
+          .col-md-7
+            %h2.featurette-heading
+              First featurette heading.
+              %span.text-muted It'll blow your mind.
+            %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+          .col-md-5
+            %img.featurette-image.img-responsive{:alt => "Generic placeholder image", "data-src" => "holder.js/500x500/auto"}
+        %hr.featurette-divider
+          .row.featurette
+            .col-md-5
+              %img.featurette-image.img-responsive{:alt => "Generic placeholder image", "data-src" => "holder.js/500x500/auto"}
+            .col-md-7
+              %h2.featurette-heading
+                Oh yeah, it's that good.
+                %span.text-muted See for yourself.
+              %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+          %hr.featurette-divider
+            .row.featurette
+              .col-md-7
+                %h2.featurette-heading
+                  And lastly, this one.
+                  %span.text-muted Checkmate.
+                %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+              .col-md-5
+                %img.featurette-image.img-responsive{:alt => "Generic placeholder image", "data-src" => "holder.js/500x500/auto"}
+            %hr.featurette-divider
+              / /END THE FEATURETTES
+              / FOOTER
+              %footer
+                %p.pull-right
+                  %a{:href => "#"} Back to top
+                %p
+                  \&copy; 2013 Company, Inc. &middot;
+                  %a{:href => "#"} Privacy
+                  \&middot;
+                  %a{:href => "#"} Terms

@@ -12,7 +12,7 @@
         .navbar-collapse.collapse
           %ul.nav.navbar-nav
             %li.active
-              %a{:href => "http://localhost:3000/"} Home
+              %a{:href => "/"} Home
             %li
               %a{:href => "#about"} About
             %li
@@ -35,47 +35,41 @@
                 %li
                   %a{:href => "#"} One more separated link
 .BBS_form
-= form_for @user do |f|
-  - if @user.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@user.errors.count, "error")
-        prohibited this user from being registered:
-      %ul
-        - @user.errors.full_messages.each do |msg|
-          %li= msg
-  %fieldset
-    %legend Enter User Details
-    .form-group.has-success.has-feeback
-      = f.label :username
-      .form-control
-        = f.text_field :username, size: 40
-        %span.glyphicon.glyphicon-ok.form-control-feedback
-        %span
-          .help-block Please Enter Your Name
-    .form-group
-      = f.label :email
-      .form-control
-        = f.text_field :email, size: 40
-        %span.glyphicon.glyphicon-ok.form-control-feedback
-        %span
-          .help-block Please Enter Your Email
-    .form-group
-      = f.label :password, 'Password'
-      .form-control
-        = f.password_field :password, size: 40
-        %span.glyphicon.glyphicon-ok.form-control-feedback
-        %span
-          .help-block Please Enter Your Password
+  = form_for @user do |f|
+    - if @user.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@user.errors.count, "error")
+          prohibited this user from being registered:
+        %ul
+          - @user.errors.full_messages.each do |msg|
+            %li= msg
+    %fieldset
+      %legend Enter User Details
+      .form-group.has-success.has-feeback
+        = f.label :username
+        .form-control
+          = f.text_field :username, size: 40
+          %span.glyphicon.glyphicon-ok.form-control-feedback
+          %span
+            .help-block Please Enter Your Name
+      .form-group
+        = f.label :email
+        .form-control
+          = f.text_field :email, size: 40
+          %span.glyphicon.glyphicon-ok.form-control-feedback
+          %span
+            .help-block Please Enter Your Email
+      .form-group
+        = f.label :password, 'Password'
+        .form-control
+          = f.password_field :password, size: 40
+          %span.glyphicon.glyphicon-ok.form-control-feedback
+          %span
+            .help-block Please Enter Your Password
 
-    .checkbox
-      %input{:type => "checkbox"} Check me out
-    .form-group 
-      .btn.btn-primary
-        = f.submit "Register"
-  
-= link_to 'Back', users_path
-
-%script{:src => "https://code.jquery.com/jquery-1.10.2.min.js"}
-%script{:src => "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"}
-%script{:src => "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/holder.js"}
+      .checkbox
+        %input{:type => "checkbox"} Check me out
+      .form-group 
+        .btn.btn-primary
+          = f.submit "Register"
