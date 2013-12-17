@@ -35,35 +35,33 @@
                 %li
                   %a{:href => "#"} One more separated link
 .BBS_form
-  - if flash[:alert]
-    %p#notice= flash[:alert]
   = form_tag do
     %fieldset
       %legend Enter User Information
       .form-group.has-success.has-feeback
         /.col-xs-12.col-sm-9
         /.form-group
-        = label_tag :email, 'Email'
+        /= label_tag :email, 'Email'
         /.col-xs-12.col-sm-9
         .form-control
-          = text_field_tag :email
+          %input{:id => "email", :name => "email", :type => "text"} Email
+          /= text_field_tag :email
           %span.glyphicon.glyphicon-ok.form-control-feedback
           %span
             .help-block Please Enter Your Email
       .form-group
         /.col-xs-12.col-sm-9
         /.form-group
-        = label_tag :password, 'Password'
+        
+        /= label_tag :password, 'Password'
         /.col-xs-12.col-sm-9
         .form-control.active
-          = password_field_tag :password
+          %input{:id => "password", :name => "password", :type => "password"} Password
+          /= password_field_tag :password
           %span.glyphicon.glyphicon-ok.form-control-feedback
           %span
             .help-block Please Enter Your Password
       .checkbox
       %input{:type => "checkbox"} Remember me
       .form-group 
-        .btn.btn-primary.btn
-          = submit_tag "Login"
-  
-= link_to 'Back', users_path
+        %button.btn.btn-primary{:type => "submit"} Login

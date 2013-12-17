@@ -34,42 +34,43 @@
                   %a{:href => "#"} Separated link
                 %li
                   %a{:href => "#"} One more separated link
-.BBS_form
-  = form_for @user do |f|
-    - if @user.errors.any?
-      #error_explanation
-        %h2
-          = pluralize(@user.errors.count, "error")
-          prohibited this user from being registered:
-        %ul
-          - @user.errors.full_messages.each do |msg|
-            %li= msg
-    %fieldset
-      %legend Enter User Details
-      .form-group.has-success.has-feeback
-        = f.label :username
-        .form-control
-          = f.text_field :username, size: 40
-          %span.glyphicon.glyphicon-ok.form-control-feedback
-          %span
-            .help-block Please Enter Your Name
-      .form-group
-        = f.label :email
-        .form-control
-          = f.text_field :email, size: 40
-          %span.glyphicon.glyphicon-ok.form-control-feedback
-          %span
-            .help-block Please Enter Your Email
-      .form-group
-        = f.label :password, 'Password'
-        .form-control
-          = f.password_field :password, size: 40
-          %span.glyphicon.glyphicon-ok.form-control-feedback
-          %span
-            .help-block Please Enter Your Password
+.container
+  .BBS_form
+    = form_for @user do |f|
+      - if @user.errors.any?
+        #error_explanation
+          %h2
+            = pluralize(@user.errors.count, "error")
+            prohibited this user from being registered:
+          %ul
+            - @user.errors.full_messages.each do |msg|
+              %li= msg
+      %fieldset
+        %legend Enter User Details
+        .form-group.has-success.has-feeback
+          /= f.label :username
+          .form-control
+            %input{:id => "user_username", :name => "user[username]", :type => "text"} Username
+            %span.glyphicon.glyphicon-ok.form-control-feedback
+            %span
+              .help-block Please Enter Your Name
+        .form-group
+          /= f.label :email
+          .form-control
+            %input{:id => "email", :name => "email", :type => "text"} Email
+            %span.glyphicon.glyphicon-ok.form-control-feedback
+            %span
+              .help-block Please Enter Your Email
+        .form-group
+          /= f.label :password, 'Password'
+          .form-control
+            %input{:id => "password", :name => "password", :type => "password"} Password
+            %span.glyphicon.glyphicon-ok.form-control-feedback
+            %span
+              .help-block Please Enter Your Password
 
-      .checkbox
-        %input{:type => "checkbox"} Check me out
-      .form-group 
-        .btn.btn-primary
-          = f.submit "Register"
+        .checkbox
+          %input{:type => "checkbox"} Check me out
+        .form-group 
+          %button.btn.btn-primary{:type => "submit"} Register 
+            
