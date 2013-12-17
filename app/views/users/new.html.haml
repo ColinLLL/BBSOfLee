@@ -46,22 +46,33 @@
           %li= msg
   %fieldset
     %legend Enter User Details
-    .form-group
+    .form-group.has-success.has-feeback
       = f.label :username
       .form-control
         = f.text_field :username, size: 40
+        %span.glyphicon.glyphicon-ok.form-control-feedback
+        %span
+          .help-block Please Enter Your Name
     .form-group
       = f.label :email
       .form-control
         = f.text_field :email, size: 40
+        %span.glyphicon.glyphicon-ok.form-control-feedback
+        %span
+          .help-block Please Enter Your Email
     .form-group
       = f.label :password, 'Password'
       .form-control
         = f.password_field :password, size: 40
+        %span.glyphicon.glyphicon-ok.form-control-feedback
+        %span
+          .help-block Please Enter Your Password
+
     .checkbox
       %input{:type => "checkbox"} Check me out
     .form-group 
-      = f.submit "Register"
+      .btn.btn-primary
+        = f.submit "Register"
   
 = link_to 'Back', users_path
 
