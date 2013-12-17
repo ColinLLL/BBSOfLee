@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
   def create
-    @user = User.new(params[:user].permit(:email, :password))
+    @user = User.new(params[:user].permit(:username, :email, :password))
     if @user.save
       UserMailer.registration_confirmation(@user).deliver
       redirect_to @user

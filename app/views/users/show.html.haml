@@ -1,56 +1,40 @@
-!!!
-%html{:lang => "en"}
-  %head
-    %meta{:charset => "utf-8"}
-      %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
-        %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-          %meta{:content => "", :name => "description"}
-            %meta{:content => "", :name => "author"}
-              %link{:href => "ico/favicon.png", :rel => "shortcut icon"}
-                %title Carousel Template for Bootstrap
-                / Bootstrap core CSS
-                %link{:href => "//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css", :rel => "stylesheet"}
-                  %link{:href => "carousel.css", :rel => "stylesheet"}
-  /
-    NAVBAR
-    \==================================================
-  %body
-    .navbar-wrapper
+
+.navbar-wrapper
+  .container
+    .navbar.navbar-inverse.navbar-static-top{:role => "navigation"}
       .container
-        .navbar.navbar-inverse.navbar-static-top{:role => "navigation"}
-          .container
-            .navbar-header
-              %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
-                %span.sr-only Toggle navigation
-                %span.icon-bar
-                %span.icon-bar
-                %span.icon-bar
-              %a.navbar-brand{:href => "#"} Project name
-            .navbar-collapse.collapse
-              %ul.nav.navbar-nav
-                %li.active
-                  %a{:href => "#"} Home
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => "#"} Project name
+        .navbar-collapse.collapse
+          %ul.nav.navbar-nav
+            %li.active
+              %a{:href => "#"} Home
+            %li
+              %a{:href => "#about"} About
+            %li
+              %a{:href => "#contact"} Contact
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Dropdown
+                %b.caret
+              %ul.dropdown-menu
                 %li
-                  %a{:href => "#about"} About
+                  %a{:href => "#"} Action
                 %li
-                  %a{:href => "#contact"} Contact
-                %li.dropdown
-                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                    Dropdown
-                    %b.caret
-                  %ul.dropdown-menu
-                    %li
-                      %a{:href => "#"} Action
-                    %li
-                      %a{:href => "#"} Another action
-                    %li
-                      %a{:href => "#"} Something else here
-                    %li.divider
-                    %li.dropdown-header Nav header
-                    %li
-                      %a{:href => "#"} Separated link
-                    %li
-                      %a{:href => "#"} One more separated link
+                  %a{:href => "#"} Another action
+                %li
+                  %a{:href => "#"} Something else here
+                %li.divider
+                %li.dropdown-header Nav header
+                %li
+                  %a{:href => "#"} Separated link
+                %li
+                  %a{:href => "#"} One more separated link
     /
       Carousel
       \==================================================

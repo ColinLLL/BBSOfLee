@@ -35,31 +35,18 @@
                 %li
                   %a{:href => "#"} One more separated link
 .BBS_form
-= form_for @user do |f|
-  - if @user.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@user.errors.count, "error")
-        prohibited this user from being registered:
-      %ul
-        - @user.errors.full_messages.each do |msg|
-          %li= msg
-  %fieldset
-    %legend Enter User Details
-    %div
-      = f.label :username
-      = f.text_field :username, size: 40
-    %div
-      = f.label :email
-      = f.text_field :email, size: 40
-    %div
-      = f.label :password, 'Password'
-      = f.password_field :password, size: 40
-    %div 
-      = f.submit "Register"
+  - if flash[:alert]
+    %p#notice= flash[:alert]
+  = form_tag do
+    %fieldset
+      %legend Enter User Information
+      %div
+        = label_tag :email, 'Email'
+        = text_field_tag :email
+      %div
+        = label_tag :password, 'Password'
+        = password_field_tag :password
+      %div 
+        = submit_tag "Login"
   
 = link_to 'Back', users_path
-
-%script{:src => "https://code.jquery.com/jquery-1.10.2.min.js"}
-%script{:src => "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"}
-%script{:src => "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/holder.js"}

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SessiosControllerTest < ActionController::TestCase
+class ConsessionControllerTest < ActionController::TestCase
   test "should get new" do
     get :new
     assert_response :success
