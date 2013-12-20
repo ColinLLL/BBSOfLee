@@ -21,7 +21,11 @@ BBSOfLee::Application.routes.draw do
   controller :consession do
     get 'Login' => :new
     post 'Login' => :create
-    delete 'logout' => :destroy
+    delete 'Logout' => :destroy
+  end
+
+  controller :users do
+    get 'register' => :new
   end
 
   root to: "welcome#index"

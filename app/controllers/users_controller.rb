@@ -7,12 +7,12 @@ class UsersController < ApplicationController
     @user = User.new(params[:user].permit(:username, :email, :password))
     if @user.save
       UserMailer.registration_confirmation(@user).deliver
-      redirect_to @user
+      redirect_to admin_index_path
     else
       render 'new'
     end
   end
   def show
-    @user = User.find(params[:id])
+    @users = User.all
   end
 end

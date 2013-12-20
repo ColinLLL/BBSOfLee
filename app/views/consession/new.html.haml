@@ -12,7 +12,7 @@
         .navbar-collapse.collapse
           %ul.nav.navbar-nav
             %li.active
-              %a{:href => "http://localhost:3000/"} Home
+              %a{:href => "/"} Home
             %li
               %a{:href => "#about"} About
             %li
@@ -47,8 +47,6 @@
           %input{:id => "email", :name => "email", :type => "text"} Email
           /= text_field_tag :email
           %span.glyphicon.glyphicon-ok.form-control-feedback
-          %span
-            .help-block Please Enter Your Email
       .form-group
         /.col-xs-12.col-sm-9
         /.form-group
@@ -59,8 +57,6 @@
           %input{:id => "password", :name => "password", :type => "password"} Password
           /= password_field_tag :password
           %span.glyphicon.glyphicon-ok.form-control-feedback
-          %span
-            .help-block Please Enter Your Password
       .checkbox
       %input{:type => "checkbox"} Remember me
       .form-group 

@@ -13,11 +13,12 @@
         .navbar-collapse.collapse
           %ul.nav.navbar-nav
             %li.active
-              %a{:href => "http://localhost:3000/"} Home
+              %a{:href => "/"} Home
             %li
               %a{:href => "#about"} About
             %li
               %a{:href => "#contact"} Contact
+
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                 Dropdown
@@ -38,9 +39,9 @@
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li.active
-              %a{:href => "../consession/new"} Login
+              %a{:href => "../Login"} Login
             %li
-              %a{:href => "#"} Logout
+              %a{:href => "../logout"} Logout
     /
       Carousel
       \==================================================
@@ -55,8 +56,10 @@
           %img{:alt => "First slide", "data-src" => "holder.js/900x500/auto/#777:#7a7a7a/text:First slide"}
             .container
               .carousel-caption
-                %h1 Example headline.
+                %h1 Welcome #{@current_user.username}
+                //= @user.username
                 %p
+                  //Welcome #{pluralize(@total_user, "users")}
                   Note: If you're viewing this page via a
                   %code file://
                   URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.
@@ -76,6 +79,7 @@
               .carousel-caption
                 %h1 One more for good measure.
                 %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                
                 %p
                   %a.btn.btn-lg.btn-primary{:href => "#", :role => "button"} Browse gallery
       %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel"}

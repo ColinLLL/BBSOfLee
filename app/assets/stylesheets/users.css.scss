@@ -1,6 +1,9 @@
 body {
+  padding-top: 40px;
   padding-bottom: 40px;
   color: #5a5a5a;
+  text-align:center;
+  margin:0 auto;
 }
 
 .navbar-wrapper {
@@ -101,18 +104,12 @@ body {
   }
 
 }
-
 .BBS_form {
-  position: relative;
-  left: 30px;
-  top: 20px;
-  float: center;
-  margin-top: 0;
-  margin-bottom: 2px;
-} 
-
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
 .BBS_form.form-group.form-control {
-  float: center;
   position: relative;
   font-size: 16px;
   height: auto;
@@ -121,30 +118,21 @@ body {
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
-
 .BBS_form.form-group.form-control:focus {
   z-index: 2;
 }
-
-.BBS_form.form-group.form-control.btn.btn-primary {
-  position: relative;
-  font-size: 16px;
-  height: auto;
-  padding: 10px;
-}
-
-.form-signin.form-control:focus {
-  z-index: 2;
-}
-
-.form-signin input[type="text"] {
+.BBS_form input[type = "text"] {
   margin-bottom: -1px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-
-.form-signin input[type="password"] {
+.BBS_form input[type = "password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+.BBS_form.div {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
 }

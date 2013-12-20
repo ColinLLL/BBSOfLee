@@ -14,5 +14,7 @@ class ConsessionController < ApplicationController
   end
 
   def destroy
+    session[:user_id] = nil
+    redirect_to consession_new_path, notice: "Logged out"
   end
 end

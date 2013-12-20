@@ -18,6 +18,7 @@ gem 'less-rails'
 gem 'bootstrap-on-rails'
 gem 'activerecord-deprecated_finders'
 gem 'arel'
+gem 'bcrypt-ruby'
 
 gem 'jbuilder', '~> 1.2'
 

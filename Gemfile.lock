@@ -145,6 +145,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-deprecated_finders
   arel
+  bcrypt-ruby
   bootstrap-on-rails
   coffee-rails (~> 4.0.0)
   devise
