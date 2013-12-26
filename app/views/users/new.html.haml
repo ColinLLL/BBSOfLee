@@ -9,35 +9,40 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "#"} Project name
+          %a.navbar-brand{:href => "/"} BBS Of Lee
         .navbar-collapse.collapse
           %ul.nav.navbar-nav
             %li.active
               %a{:href => "/"} Home
             %li
-              %a{:href => "#about"} About
+              %a{:href => "/"} About
             %li
-              %a{:href => "#contact"} Contact
+              %a{:href => "/"} Contact
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                 Dropdown
                 %b.caret
               %ul.dropdown-menu
                 %li
-                  %a{:href => "#"} Action
+                  %a{:href => "/"} Action
                 %li
-                  %a{:href => "#"} Another action
+                  %a{:href => "/"} Another action
                 %li
-                  %a{:href => "#"} Something else here
+                  %a{:href => "/"} Something else here
                 %li.divider
                 %li.dropdown-header Nav header
                 %li
-                  %a{:href => "#"} Separated link
+                  %a{:href => "/"} Separated link
                 %li
-                  %a{:href => "#"} One more separated link
-
+                  %a{:href => "/"} One more separated link
+      .collapse.navbar-collapse
+        %ul.nav.navbar-nav
+          %li.active
+            %a{:href => "../Login"} Login
+          %li
+            %a{:href => "../register"} Register
 .container
-  .BBS_form
+  .BBS_form{:role => "form"} 
     = form_for @user do |f|
       - if @user.errors.any?
         #error_explanation
@@ -50,14 +55,11 @@
       %fieldset
         %legend Enter User Details
         %div
-          = f.label :username
-          = f.text_field :username
+          = f.text_field :username, :placeholder => "Username"
         %div
-          = f.label :email
-          = f.text_field :email
+          = f.text_field :email, :placeholder => "Email"
         %div
-          = f.label :password, 'Password'
-          = f.password_field :password
+          = f.password_field :password, :placeholder => "Password"
         .checkbox
           %input{:type => "checkbox"} Check me out
         .form-group 

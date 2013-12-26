@@ -1,3 +1,4 @@
+
 .navbar-wrapper
   .container
     .navbar.navbar-inverse.navbar-static-top{:role => "navigation"}
@@ -8,56 +9,51 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "#"} Project name
+          %a.navbar-brand{:href => "/"} BBS Of Lee
         .navbar-collapse.collapse
           %ul.nav.navbar-nav
             %li.active
               %a{:href => "/"} Home
             %li
-              %a{:href => "#about"} About
+              %a{:href => "/"} About
             %li
-              %a{:href => "#contact"} Contact
+              %a{:href => "/"} Contact
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                 Dropdown
                 %b.caret
               %ul.dropdown-menu
                 %li
-                  %a{:href => "#"} Action
+                  %a{:href => "/"} Action
                 %li
-                  %a{:href => "#"} Another action
+                  %a{:href => "/"} Another action
                 %li
-                  %a{:href => "#"} Something else here
+                  %a{:href => "/"} Something else here
                 %li.divider
                 %li.dropdown-header Nav header
                 %li
-                  %a{:href => "#"} Separated link
+                  %a{:href => "/"} Separated link
                 %li
-                  %a{:href => "#"} One more separated link
+                  %a{:href => "/"} One more separated link
+      .collapse.navbar-collapse
+        %ul.nav.navbar-nav
+          %li.active
+            %a{:href => "../Login"} Login
+          %li
+            %a{:href => "../register"} Register
 .BBS_form
   = form_tag do
     %fieldset
       %legend Enter User Information
       .form-group.has-success.has-feeback
-        /.col-xs-12.col-sm-9
-        /.form-group
-        /= label_tag :email, 'Email'
-        /.col-xs-12.col-sm-9
         .form-control
-          %input{:id => "email", :name => "email", :type => "text"} Email
-          /= text_field_tag :email
-          %span.glyphicon.glyphicon-ok.form-control-feedback
-      .form-group
-        /.col-xs-12.col-sm-9
-        /.form-group
-        
-        /= label_tag :password, 'Password'
-        /.col-xs-12.col-sm-9
-        .form-control.active
-          %input{:id => "password", :name => "password", :type => "password"} Password
-          /= password_field_tag :password
-          %span.glyphicon.glyphicon-ok.form-control-feedback
+          %input{:id => "email", :name => "email", :type => "text", :placeholder => "Email address"}
+          
+      .form-group.has-success.has-feeback
+        .form-control
+          %input{:id => "password", :name => "password", :type => "password", :placeholder => "Password"} 
+          
       .checkbox
-      %input{:type => "checkbox"} Remember me
+        %input{:type => "checkbox"} Remember me
       .form-group 
         %button.btn.btn-primary{:type => "submit"} Login

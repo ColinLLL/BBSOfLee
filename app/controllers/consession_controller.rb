@@ -1,5 +1,6 @@
 class ConsessionController < ApplicationController
-  #skip_before_filter :authorize
+  skip_before_filter :authorize
+
   def new
   end
 
@@ -7,7 +8,7 @@ class ConsessionController < ApplicationController
   	user = User.find_by_email(params[:email])
     if user and user.authenticate(params[:email], params[:password])
       session[:user_id] = user.id
-      redirect_to admin_index_path
+      redirect_to welcome_index_path
     else
       redirect_to consession_new_path, alert: "Invalid user/password combination"
     end
@@ -15,6 +16,6 @@ class ConsessionController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to consession_new_path, notice: "Logged out"
+    redirect_to welcome_index_path, notice: "Logged out"
   end
 end
