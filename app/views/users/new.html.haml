@@ -53,7 +53,7 @@
             - @user.errors.full_messages.each do |msg|
               %li= msg
       %fieldset
-        %legend Enter User Details
+        %legend Enter User Information
         %div
           = f.text_field :username, :placeholder => "Username"
         %div
@@ -64,4 +64,3 @@
           %input{:type => "checkbox"} Check me out
         .form-group 
           %button.btn.btn-primary{:type => "submit"} Register 
-            

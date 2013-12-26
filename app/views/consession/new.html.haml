@@ -44,16 +44,10 @@
 .BBS_form
   = form_tag do
     %fieldset
-      %legend Enter User Information
-      .form-group.has-success.has-feeback
-        .form-control
-          %input{:id => "email", :name => "email", :type => "text", :placeholder => "Email address"}
+      %legend Login in
+      %input{:id => "email", :name => "email", :type => "text", :placeholder => "Email address"}
           
-      .form-group.has-success.has-feeback
-        .form-control
-          %input{:id => "password", :name => "password", :type => "password", :placeholder => "Password"} 
-          
-      .checkbox
-        %input{:type => "checkbox"} Remember me
-      .form-group 
-        %button.btn.btn-primary{:type => "submit"} Login
+      %input{:id => "password", :name => "password", :type => "password", :placeholder => "Password"} 
+        .checkbox
+          %input{:type => "checkbox"} Remember me
+      %button.btn.btn-primary{:type => "submit"} Login

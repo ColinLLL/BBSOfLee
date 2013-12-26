@@ -18,4 +18,5 @@ class ConsessionController < ApplicationController
     session[:user_id] = nil
     redirect_to welcome_index_path, notice: "Logged out"
   end
+  
 end

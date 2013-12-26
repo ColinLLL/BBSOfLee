@@ -7,13 +7,11 @@ BBSOfLee::Application.routes.draw do
 
   resources :users
   resources :consession, only: [:new, :create, :destroy]
-  #match '/consession/new', to: 'consession#new', via: [:get]
-  #match '/consession/new', to: 'consession#create', via: [:post]
+  
   get 'consession/new', to: 'consession#new'
   post 'consession/new', to: 'consession#create'
   get 'admin' => 'admin#index'
   get 'Logout' => 'consession#destroy'
-  #get 'consession/new', to: 'consession#destroy'
   
   controller :consession do
     get 'Login' => :new
