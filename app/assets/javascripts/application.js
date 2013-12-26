@@ -15,8 +15,8 @@
 //= require jquery-2.0.3.min.js
 //= require bootstrap
 //= require holder
+//= require twitter/bootstrap 
 //= require bootstrap-dropdown
 //= require bootstrap.min
 //= require turbolinks
 //= require_tree .
- $('.dropdown-toggle').dropdown();
