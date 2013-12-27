@@ -1,5 +1,4 @@
 class WelcomeController < ApplicationController
-  skip_before_filter :authorize
   
   def index
     @total_user = User.count

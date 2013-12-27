@@ -5,4 +5,5 @@ class UserMailer < ActionMailer::Base
   	@user = user
   	mail(to: @user.email, subject: "Thank you for Registstering")
   end
+  
 end
