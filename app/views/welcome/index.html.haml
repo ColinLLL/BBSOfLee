@@ -20,7 +20,7 @@
           %li
             %a Hello, world! #{@current_user.username}
           %li.active
-            =link_to 'Loginout', logout_path
+            =link_to 'Logout', logout_path
         - else
           %li.active
             =link_to 'Login', login_path

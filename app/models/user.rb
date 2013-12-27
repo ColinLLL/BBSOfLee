@@ -1,12 +1,10 @@
 class User < ActiveRecord::Base
 
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, :confirmation => true
   validates :email, presence: true, format: { with: /(\w*)@(\w*).com/, message: 'must be a Email format'}
 
-  has_secure_password validations: false
+  has_secure_password
 
-  def authenticate(login, pass)
-    User.where(:email => login, :password_digest => pass).first
-  end
+  
 
 end

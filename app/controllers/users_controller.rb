@@ -4,10 +4,10 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(params[:user].permit(:username, :email, :password))
+    @user = User.new(params[:user].permit(:username, :email, :password, :password_confirmation))
     if @user.save
       UserMailer.registration_confirmation(@user).deliver
-      redirect_to root_path
+      redirect_to login_path
     else
       render 'new'
     end

@@ -12,11 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-2.0.3.min.js
-//= require bootstrap
-//= require holder
-//= require twitter/bootstrap 
-//= require bootstrap-dropdown
-//= require bootstrap.min
+//= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
