@@ -9,7 +9,7 @@ class SessionController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path
     else
-      redirect_to session_new_path, alert: "Invalid user/password combination"
+      redirect_to login_path, alert: "Invalid user/password combination"
     end
   end
 
