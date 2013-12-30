@@ -1,0 +1,29 @@
+.form{:role => "form"}
+  = form_for @post do |f|
+
+    - if @post.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+        %ul
+          - @post.errors.full_messages.each do |msg|
+            %li= msg
+
+    %fieldset
+      %legend Edit Your Post
+      %div
+        = f.label :title
+      %div
+        %input{:id => "post_title", :name => "post[title]", :type => "text"}
+        %select#selType
+          %option{:value => "0"} select
+          %option{:value => "1"} Original
+          %option{:value => "2"} Reprinted
+          %option{:value => "3"} Translation
+        %span{:style => "display:inline-block; padding:4px 0 0 10px;"} *Only original and translated articles can be recommended to the Home
+
+      %div
+        = f.label :content
+      .section
+        %textarea.xheditor{:id => "post_content", :name => "post[content]", :rows => "30", :style => "width:99.4%;"}
+        
+    %button.btn.btn-sm.btn-primary{:type => "submit"} Commit

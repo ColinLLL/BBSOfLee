@@ -1,5 +1,10 @@
 BBSOfLee::Application.routes.draw do
 
+  resources :posts
+
+  get 'posts', to: 'posts#index'
+  get 'new', to: 'posts#new'
+
   resources :users
 
   get 'logout', to: 'session#destroy'
