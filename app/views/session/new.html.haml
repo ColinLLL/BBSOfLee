@@ -18,13 +18,13 @@
       %ul.nav.navbar-nav.navbar-right
         %li.active
           =link_to 'Register', register_path
-.BBS_form
+.form-signin
   = form_tag do
     %fieldset
-      %legend Login in
-      %input{:id => "email", :name => "email", :type => "text", :placeholder => "Email address"}
+      %legend.form-signin-heading Please Login in
+      %input.form-control{:id => "email", :name => "email", :type => "text", :placeholder => "Email address"}
           
-      %input{:id => "password", :name => "password", :type => "password", :placeholder => "Password"} 
-        .checkbox
-          %input{:type => "checkbox"} Remember me
-      %button.btn.btn-primary{:type => "submit"} Login
+      %input.form-control{:id => "password", :name => "password", :type => "password", :placeholder => "Password"} 
+      .checkbox
+        %input{:type => "checkbox"} Remember me
+      %button.btn.btn-lg.btn-primary.btn-block{:type => "submit"} Login
