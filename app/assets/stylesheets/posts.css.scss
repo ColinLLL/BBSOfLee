@@ -1,6 +1,47 @@
-// Place all the styles related to the Posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.posts {
+  table {
+    border-collapse: collapse;
+  }
+}
+
+table tr td {
+  padding: 5px;
+  vertical-align: top;
+}
+.list tr td {
+  padding: 5px;
+  vertical-align: top;
+}
+
+.list_description {
+  width: 95%;
+  height: 200%;
+  dl {
+    margin: 0;
+  }
+  dt {
+    color:#244;
+    font-weight:bold;
+    font-size:larger;
+  }
+  dd {
+    margin: 0;
+  }
+}
+
+.list_actions {
+  font-size:x-small;
+  text-align:right;
+  padding-left: 1em;
+}
+
+.list_line_even {
+  background:#e0f8f8;
+}
+
+.list_line_odd {
+  background:#f8b0f8;
+}
 .form {
   margin-top: 20px;
   margin-bottom: 20px;

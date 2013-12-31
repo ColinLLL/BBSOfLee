@@ -33,25 +33,18 @@
   %a.btn.btn-default{:href => 'new', :role => 'button'} New Paper
 
   %table
-    %tr
-      %th 
-      %th 
-      %th
-      %th
-      %th
 
     - @posts.each do |post|
-      %tr
-        %td
-          %h3.title= post.title
-        %td
-          %p.content= post.content
-        %td
-          %a
-            = link_to 'Show', post
-          %a
-            = link_to 'Edit', edit_post_path(post)
-          %a
-            = link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %tr{:class => cycle('list_line_odd', 'list_line_even')}
+        %td.list_description
+          %dl
+            %dt= post.title
+            %dd=  truncate(strip_tags(post.content), length: 80)
+        %td.list_actions
+          = link_to 'Read', post
+          %br/
+          = link_to 'Edit', edit_post_path(post)
+          %br/
+          = link_to 'Delete', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
   %br
