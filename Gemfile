@@ -19,6 +19,7 @@ gem 'activerecord-deprecated_finders'
 gem 'arel'
 gem 'bcrypt-ruby'
 gem 'bootstrap-sass'
+gem 'rails_12factor', group: :production
 
 gem 'jbuilder', '~> 1.2'
 
