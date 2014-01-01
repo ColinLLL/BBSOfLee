@@ -14,8 +14,12 @@ table tr td {
 }
 
 .list_description {
-  width: 95%;
-  height: 200%;
+  position: relative;
+  left: 20px;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 20px;
+  width: 85%;
   dl {
     margin: 0;
   }
@@ -26,6 +30,10 @@ table tr td {
   }
   dd {
     margin: 0;
+  }
+  span {
+  	color:blue;
+  	margin: 0;
   }
 }
 
@@ -42,10 +50,86 @@ table tr td {
 .list_line_odd {
   background:#f8b0f8;
 }
+
 .form {
   margin-top: 20px;
   margin-bottom: 20px;
   max-width: 630px;
   padding: 10px;
   margin: 0 auto;
+}
+
+.list-group {
+  span {
+    color:blue;
+  	margin: 0;
+  }
+}
+
+.container
+{
+  position:relative;
+  margin: 0 auto;
+  
+  table {
+    position: relative;
+    left: 100px;
+    top: 0px; 
+    margin-top: 0px;
+    width: 90%;
+  }
+}
+
+#main {
+  padding: 1em;
+
+  table tr td {
+    padding: 5px;
+    vertical-align: top;
+  }
+
+  .list_description {
+    position: relative;
+    left: 20px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 20px;
+    width: 85%;
+
+    dl {
+      margin: 0;
+    }
+    dt {
+      color:#244;
+      font-weight:bold;
+      font-size:larger;
+    }
+    dd {
+      margin: 0;
+    }
+    span {
+      color:blue;
+      margin: 0;
+    }
+  }
+
+  .list_actions {
+    font-size:x-small;
+    text-align:right;
+    padding-left: 1em;
+  }
+
+  .list_line_even {
+    background:#e0f8f8;
+  }
+
+  .list_line_odd {
+    background:#f8b0f8;
+  }
+}
+
+#side {
+  float: left;
+  padding: 0em;
+  width: 5em;
 }

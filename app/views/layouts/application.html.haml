@@ -7,5 +7,5 @@
     = csrf_meta_tags
     //%script{:src => "http://static.blog.csdn.net/scripts/jquery.js", :type => "text/javascript"}
     //%script{:src => "http://static.blog.csdn.net/xheditor/xheditor-1.1.13-zh-cn.js", :type => "text/javascript"}
-  %body
+  %body{:class => controller.controller_name}
     = yield

@@ -28,13 +28,14 @@
             =link_to 'Register', register_path
 
 .container 
-  %p#notice= notice
 
   .list-group
     .list-group-item
-      %h3.list-group-item-heading #{@post.title}
-      %p.list-group-item-heading #{@post.content}
-
+      %h3.list-group-item-heading #{@post.title} [#{@post.seltype}]
+      - @post.cata.split(',').each do |icata|
+        %span #{icata}
+      - @post.content.split("\n").each do |ipa|
+        %p.list-group-item-text #{ipa}
 
   = link_to 'Edit', edit_post_path(@post) |
   = link_to 'Back', posts_path

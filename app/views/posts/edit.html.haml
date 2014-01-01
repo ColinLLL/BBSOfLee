@@ -1,7 +1,76 @@
-%h1 Editing post
+.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "#"} OC Project
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li.active
+          %a{:href => "/"} Home
+        %li
+          %a{:href => "#about"} About
+        %li
+          %a{:href => "#contact"} Contact
+      %ul.nav.navbar-nav.navbar-right
+        - if @current_user
+          %li
+            %a Hello, world! #{@current_user.username}
+          %li.active
+            =link_to 'Logout', logout_path
+        - else
+          %li.active
+            =link_to 'Login', login_path
+          %li
+            =link_to 'Register', register_path
 
-= render 'form'
+.form{:role => "form"}
+  = form_for @post do |f|
 
-= link_to 'Show', @post
-\|
-= link_to 'Back', posts_path
+    - if @post.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+        %ul
+          - @post.errors.full_messages.each do |msg|
+            %li= msg
+
+    %fieldset
+      %legend Edit Your Post
+      %div
+        = f.label :title
+      %div
+        %input{:id => "post_title", :name => "post[title]", :type => "text"}
+        = f.select :seltype, [ 'Original', 'Reprinted', 'Translation' ], :prompt => 'Select'
+        %span{:style => "display:inline-block; padding:4px 0 0 10px;"} *Only original and translated articles can be recommended to the Home
+      %div
+        = f.label :content
+      .section
+        %textarea.xheditor{:id => "post_content", :name => "post[content]", :rows => "30", :style => "width:99.4%;"}
+        
+        
+    %h3 Add category
+    #moreDiv
+      %p.subtit
+        Posts tagged (Add Tag, your content can be more people see)
+      %div{:style => "position:relative;"}
+        #d_tag2
+        = succeed "(Add" do
+          %input{:id => "post_cata", :name => "post[cata]", :maxlength => "100", :style => "width:60%; height:20px;", :type => "text"}/
+        up to five labels, with "," separated between multiple tags)
+        #tag2box{:style => "display:none;"}
+          %table
+            %tr
+              %th Common tags
+              %td#td_tag21
+            %tr
+              %th Featured Tags
+              %td#td_tag22
+
+    %button.btn.btn-sm.btn-primary{:type => "submit"} Commit
+
+    = link_to 'Show', @post
+    \|
+    = link_to 'Back', posts_path

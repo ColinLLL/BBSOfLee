@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131230055234) do
+ActiveRecord::Schema.define(version: 20131231090621) do
 
   create_table "logins", force: true do |t|
     t.datetime "created_at"
@@ -23,7 +23,12 @@ ActiveRecord::Schema.define(version: 20131230055234) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "seltype"
+    t.string   "cata"
+    t.integer  "users_id"
   end
+
+  add_index "posts", ["users_id"], name: "index_posts_on_users_id"
 
   create_table "signins", force: true do |t|
     t.string   "email"

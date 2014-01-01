@@ -27,24 +27,32 @@
           %li
             =link_to 'Register', register_path
 
-.container      
+.container 
   %h1 Listing posts
+  #side
+    - if @current_user
+      .panel
+        .panel-heading 
+          %h3.panel-title #{@current_user.username}
+        .panel-body Detail
+        %a.btn.btn-default{:href => 'new', :role => 'button'} New Paper
+  #main
+    %table
 
-  %a.btn.btn-default{:href => 'new', :role => 'button'} New Paper
-
-  %table
-
-    - @posts.each do |post|
-      %tr{:class => cycle('list_line_odd', 'list_line_even')}
-        %td.list_description
-          %dl
-            %dt= post.title
-            %dd=  truncate(strip_tags(post.content), length: 80)
-        %td.list_actions
-          = link_to 'Read', post
-          %br/
-          = link_to 'Edit', edit_post_path(post)
-          %br/
-          = link_to 'Delete', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      - @posts.each do |post|
+        %tr{:class => cycle('list_line_odd', 'list_line_even')}
+          %td.list_description
+            %dl
+              %dt #{post.title} [#{post.seltype}]
+              %dd= truncate(strip_tags(post.content), length: 80)
+              - post.cata.split(',').each do |icata|
+                %span #{icata}
+          %td.list_actions
+            = link_to 'Read', post
+            %br/
+            = link_to 'Edit', edit_post_path(post)
+            %br/
+            = link_to 'Delete', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
   %br
+  
