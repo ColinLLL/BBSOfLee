@@ -3,7 +3,7 @@ BBSOfLee::Application.routes.draw do
   resources :posts
 
   get 'posts', to: 'posts#index'
-  get 'new', to: 'posts#new'
+  get 'newpost', to: 'posts#new'
 
   resources :users do
     resources :posts

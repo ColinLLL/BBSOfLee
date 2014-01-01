@@ -15,5 +15,9 @@
 //= require twitter/bootstrap
 //= require csdn
 //= require postedit
+//= require xheditor.min
+//= require jquery/jquery-1.4.4.min
+//= require xheditor_lang/zh-cn
+//= require xheditor-1.1.13-zh-cn
 //= require turbolinks
 //= require_tree .
