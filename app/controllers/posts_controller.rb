@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.where(users_id: session[:user_id])
+    @posts = Post.all #where(users_id: session[:user_id])
     @current_user = User.find_by_id(session[:user_id])
   end
 
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.users_id = session[:user_id]
+    #@post.users_id = session[:user_id]
 
     respond_to do |format|
       if @post.save
