@@ -1,11 +1,18 @@
 BBSOfLee::Application.routes.draw do
 
+  resources :cates
+
   resources :posts
 
   get 'posts', to: 'posts#index'
   get 'newpost', to: 'posts#new'
 
   resources :users do
+    resources :posts
+  end
+
+
+  resources :cates do
     resources :posts
   end
 

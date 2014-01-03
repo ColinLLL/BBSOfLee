@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all #where(users_id: session[:user_id])
+    @posts = Post.where(user_id: session[:user_id])
     @current_user = User.find_by_id(session[:user_id])
   end
 
@@ -21,10 +21,16 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    #@post.users_id = session[:user_id]
+    @post.user_id = session[:user_id]
 
     respond_to do |format|
       if @post.save
+        session[:post_id] = @post.id
+        @post.category.split(",").each do |icate|
+          @category = Cate.new(cate_name: icate, post_id: session[:post_id])
+          @category.post_id = session[:post_id]
+          @category.save
+        end
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
       else
@@ -61,6 +67,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :content, :seltype, :cata, :user_id)
+      params.require(:post).permit(:title, :content, :seltype, :category, :user_id)
     end
+
 end

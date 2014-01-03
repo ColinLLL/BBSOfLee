@@ -28,14 +28,25 @@
             =link_to 'Register', register_path
 
 .container 
-
-  .list-group
-    .list-group-item
-      %h3.list-group-item-heading #{@post.title} [#{@post.seltype}]
-      - @post.cata.split(',').each do |icata|
-        %span #{icata}
-      - @post.content.split("\n").each do |ipa|
-        %p.list-group-item-text #{ipa}
+  #side
+    - if @current_user
+      .panel
+        .panel-heading 
+          %h3.panel-title #{@current_user.username}
+        .panel-body Detail
+        %a.btn.btn-default{:href => 'new', :role => 'button'} New Paper
+  #main
+    %table
+      %tr
+        %td.list_description
+          %dl
+            %dt #{@post.title} [#{@post.seltype}]
+            %dd
+              - strip_tags(@post.content).split('\r\n').each do |ipa|
+                %p.list-group-item-text #{ipa}
+            %dd
+              - @post.category.split(",").each do |icate|
+                %span #{icate}
 
   = link_to 'Edit', edit_post_path(@post) |
   = link_to 'Back', posts_path

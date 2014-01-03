@@ -26,6 +26,14 @@
             =link_to 'Login', login_path
           %li
             =link_to 'Register', register_path
+.container
+#side  
+  - if @current_user
+    .panel
+      .panel-heading 
+        %h3.panel-title #{@current_user.username}
+      .panel-body Detail
+      %a.btn.btn-default{:href => 'newpost', :role => 'button'} New Paper
 
 .form{:role => "form"}
   = form_for @post do |f|
@@ -38,7 +46,6 @@
             %li= msg
 
     %fieldset
-      %legend Edit Your Post
       %div
         = f.label :title
       %div
@@ -58,7 +65,7 @@
       %div{:style => "position:relative;"}
         #d_tag2
         = succeed "(Add" do
-          %input{:id => "post_cata", :name => "post[cata]", :maxlength => "100", :style => "width:60%; height:20px;", :type => "text"}/
+          %input{:id => "post_category", :name => "post[category]", :maxlength => "100", :style => "width:60%; height:20px;", :type => "text"}/
         up to five labels, with "," separated between multiple tags)
 
     %button.btn.btn-sm.btn-primary{:type => "submit"} Commit

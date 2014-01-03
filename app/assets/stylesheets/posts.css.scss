@@ -54,6 +54,7 @@ table tr td {
 .form {
   margin-top: 20px;
   margin-bottom: 20px;
+  left: 200px;
   max-width: 630px;
   padding: 10px;
   margin: 0 auto;
@@ -83,9 +84,18 @@ table tr td {
 #main {
   padding: 1em;
 
-  table tr td {
+  button {
+    position: relative;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .list-group.list-group-item {
     padding: 5px;
     vertical-align: top;
+    position: relative;
+    left: 200px;
+    margin-top: 20px;
+    width: 50%;
   }
 
   .list_description {
@@ -131,5 +141,13 @@ table tr td {
 #side {
   float: left;
   padding: 0em;
-  width: 5em;
+  width: 1em;
+}
+#foot {
+  button.btn.btn-sm.btn-primary {
+    float: right;
+    padding: 0em;
+    width: 1em;
+  }
+  
 }

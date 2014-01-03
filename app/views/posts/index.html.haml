@@ -35,7 +35,7 @@
         .panel-heading 
           %h3.panel-title #{@current_user.username}
         .panel-body Detail
-        %a.btn.btn-default{:href => 'newpost', :role => 'button'} New Paper
+        %a.btn.btn-default{:href => 'new', :role => 'button'} New Paper
   #main
     %table
 
@@ -45,8 +45,8 @@
             %dl
               %dt #{post.title} [#{post.seltype}]
               %dd= truncate(strip_tags(post.content), length: 80)
-              - post.cata.split(',').each do |icata|
-                %span #{icata}
+              - post.category.split(',').each do |icate|
+                %span #{icate}
           %td.list_actions
             = link_to 'Read', post
             %br/

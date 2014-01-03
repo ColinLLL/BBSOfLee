@@ -1,0 +1,21 @@
+%h1 Listing cates
+
+%table
+  %tr
+    %th Cate name
+    %th Post
+    %th
+    %th
+    %th
+
+  - @cates.each do |cate|
+    %tr
+      %td= cate.cate_name
+      %td= cate.post_id
+      %td= link_to 'Show', cate
+      %td= link_to 'Edit', edit_cate_path(cate)
+      %td= link_to 'Destroy', cate, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Cate', new_cate_path
