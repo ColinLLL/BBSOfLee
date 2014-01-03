@@ -34,15 +34,14 @@
         .panel-heading 
           %h3.panel-title #{@current_user.username}
         .panel-body Detail
-        %a.btn.btn-default{:href => 'new', :role => 'button'} New Paper
   #main
     %table
       %tr
         %td.list_description
           %dl
-            %dt #{@post.title} [#{@post.seltype}]
+            %dt.lead #{@post.title} [#{@post.seltype}]
             %dd
-              - strip_tags(@post.content).split('\r\n').each do |ipa|
+              - strip_tags(@post.content).split("\n").each do |ipa|
                 %p.list-group-item-text #{ipa}
             %dd
               - @post.category.split(",").each do |icate|
