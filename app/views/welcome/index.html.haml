@@ -15,6 +15,8 @@
           %a{:href => "#about"} About
         %li
           %a{:href => "#contact"} Contact
+        %li
+          %a{:href => "posts", :role => "button"} Posts
       %ul.nav.navbar-nav.navbar-right
         - if @current_user
           %li
@@ -35,42 +37,7 @@
       .jumbotron
         %h1 Hello, world!
         %p This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.
-      .row
-        .col-6.col-sm-6.col-lg-4
-          %h2 See the posts
-          %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          %p
-            %a.btn.btn-default{:href => "posts", :role => "button"} Posts &raquo;
-
-        .col-6.col-sm-6.col-lg-4
-          %h2 Heading
-          %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          %p
-            %a.btn.btn-default{:href => "#", :role => "button"} View details &raquo;
-
-        .col-6.col-sm-6.col-lg-4
-          %h2 Heading
-          %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          %p
-            %a.btn.btn-default{:href => "#", :role => "button"} View details &raquo;
-
-        .col-6.col-sm-6.col-lg-4
-          %h2 Heading
-          %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          %p
-            %a.btn.btn-default{:href => "#", :role => "button"} View details &raquo;
-
-        .col-6.col-sm-6.col-lg-4
-          %h2 Heading
-          %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          %p
-            %a.btn.btn-default{:href => "#", :role => "button"} View details &raquo;
-
-        .col-6.col-sm-6.col-lg-4
-          %h2 Heading
-          %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          %p
-            %a.btn.btn-default{:href => "#", :role => "button"} View details &raquo;
+      
   %hr
     %footer
       %p &copy; Company 2013

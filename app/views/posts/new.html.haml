@@ -15,6 +15,8 @@
           %a{:href => "#about"} About
         %li
           %a{:href => "#contact"} Contact
+        %li
+          %a{:href => "posts", :role => "button"} Posts
       %ul.nav.navbar-nav.navbar-right
         - if @current_user
           %li
@@ -27,37 +29,23 @@
           %li
             =link_to 'Register', register_path
 .container
+  .form{:role => "form"}
+    = form_for @post do |f|
+      %fieldset
+        %h3 Edit your post
 
-
-.form{:role => "form"}
-  = form_for @post do |f|
-
-    - if @post.errors.any?
-      #error_explanation
-        %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
-        %ul
-          - @post.errors.full_messages.each do |msg|
-            %li= msg
-
-    %fieldset
-      %h3 Edit your post
-
-      .form-group
-        %label.label-info.lead{:for => "Title"} Title
-        %input.form-control{:id => "post_title", :name => "post[title]", :type => "text"}
-        %select.form-control{:id => "post_seltype", :name => "post[seltype]"}
-          %option Original
-          %option Reprinted
-          %option Translation
-      .form-group
-        %label.label-primary.lead{:for => "Content"} Content
+        .form-group
+          %label.lead{:for => "Title"} Title
+          %input.form-control{:id => "post_title", :name => "post[title]", :type => "text"}
+        .form-group
+          %label.lead{:for => "Content"} Content
         
-        %textarea.form-control{:id => "post_content", :name => "post[content]", :rows => "30", :style => "width:99.4%;"}
-        
-        
-    %h3 Add category
-    %p.subtit
-      Posts tagged (Add Tag, your content can be more people see)
-    %input.form-control{:id => "post_category", :name => "post[category]", :maxlength => "100", :style => "width:60%; height:30px;", :type => "text"}
-    %p
-      %button.btn.btn-sm.btn-primary{:type => "submit", :style => "margin-top: 20px"} Commit
+          %textarea.form-control{:id => "post_content", :name => "post[content]", :rows => "30"}
+
+      %h3 Add category
+      %p.subtit
+        Posts tagged (Add Tag, your content can be more people see)
+      %input.form-control{:name => "category[category_title]", :maxlength => "100", :style => "width:60%; height:30px;", :type => "text"}
+    
+      %p
+        %button.btn.btn-sm.btn-primary{:type => "submit", :style => "margin-top: 20px"} Commit

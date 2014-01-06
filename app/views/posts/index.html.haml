@@ -15,6 +15,8 @@
           %a{:href => "#about"} About
         %li
           %a{:href => "#contact"} Contact
+        %li
+          %a{:href => "posts", :role => "button"} Posts
       %ul.nav.navbar-nav.navbar-right
         - if @current_user
           %li
@@ -27,7 +29,7 @@
           %li
             =link_to 'Register', register_path
 
-.container 
+.container
   %h1 Listing posts
   #side
     - if @current_user
@@ -37,23 +39,17 @@
         .panel-body Detail
         %a.btn.btn-default{:href => 'newpost', :role => 'button'} New Paper
   #main
-    %table
+    %table.table.table-striped
 
       - @posts.each do |post|
-        %tr{:class => cycle('list_line_odd', 'list_line_even')}
+        %tr
           %td.list_description
             %dl
-              %dt.lead #{post.title} [#{post.seltype}]
+              %dt.lead #{post.title}
               %dd.pull-right
                 = truncate(strip_tags(post.content), length: 80)
-              - post.category.split(',').each do |icate|
-                %span #{icate}
-          %td.list_actions
-            = link_to 'Read', post
-            %br/
-            = link_to 'Edit', edit_post_path(post)
-            %br/
-            = link_to 'Delete', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+            
+            %td.list_actions
+              = link_to 'Read', post
 
-  %br
-  
+    %br

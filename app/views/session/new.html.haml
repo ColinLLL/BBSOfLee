@@ -20,9 +20,9 @@
           =link_to 'Register', register_path
 .form-signin
   = form_tag do
-    %fieldset
+    %fieldset{:style => "margin-top: 100px;"}
       %legend.form-signin-heading Please Login in
-      %input.form-control{:id => "email", :name => "email", :type => "text", :placeholder => "Email address"}
+      %input.form-control{:id => "email", :name => "email", :type => "email", :placeholder => "Email address"}
           
       %input.form-control{:id => "password", :name => "password", :type => "password", :placeholder => "Password"} 
       .checkbox

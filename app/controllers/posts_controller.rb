@@ -1,73 +1,44 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-
   def index
-    @posts = Post.where(user_id: session[:user_id])
+  	@current_user = User.find_by_id(session[:user_id])
+    @posts = @current_user.posts.all
+  end
+
+  def new
+  	@post = Post.new
     @current_user = User.find_by_id(session[:user_id])
   end
 
   def show
-    @current_user = User.find_by_id(session[:user_id])
-  end
-
-  def new
-    @current_user = User.find_by_id(session[:user_id])
-    @post = Post.new
-  end
-
-  def edit
+  	@post = Post.find(params[:id])
     @current_user = User.find_by_id(session[:user_id])
   end
 
   def create
     @post = Post.new(post_params)
     @post.user_id = session[:user_id]
-
-    respond_to do |format|
-      if @post.save
-        session[:post_id] = @post.id
-        @post.category.split(",").each do |icate|
-          @category = Cate.new(cate_name: icate, post_id: session[:post_id])
-          @category.post_id = session[:post_id]
-          @category.save
-        end
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @post }
+ 
+    if @post.save
+      if @category = Category.where(category_params).take
       else
-        format.html { render action: 'new' }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        @category = Category.new(category_params)
+        @category.save
       end
+      @post_category = PostCategory.new(:category_id => @category.id, :post_id => @post.id)
+      @post_category.save
+
+      redirect_to @post
+    else
+      redirect_to 'new'
     end
   end
-
-  def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def destroy
-    @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url }
-      format.json { head :no_content }
-    end
-  end
-
+  
   private
-
-    def set_post
-      @post = Post.find(params[:id])
-    end
-
     def post_params
-      params.require(:post).permit(:title, :content, :seltype, :category, :user_id)
+      params.require(:post).permit(:title, :content)
     end
 
+    def category_params
+      params.require(:category).permit(:category_title)
+    end
 end

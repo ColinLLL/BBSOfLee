@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
   belongs_to :users
-  belongs_to :cates
+  
+  has_many :post_categories, dependent: :destroy
 end

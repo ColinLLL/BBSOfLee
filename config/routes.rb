@@ -1,20 +1,9 @@
 BBSOfLee::Application.routes.draw do
-
-  resources :cates
-
   resources :posts
 
-  get 'posts', to: 'posts#index'
+  resources :users
+
   get 'newpost', to: 'posts#new'
-
-  resources :users do
-    resources :posts
-  end
-
-
-  resources :cates do
-    resources :posts
-  end
 
   get 'logout', to: 'session#destroy'
 
