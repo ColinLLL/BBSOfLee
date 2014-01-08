@@ -17,12 +17,13 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = session[:user_id]
-    if @category = Category.where(category_params).take
-    else
-      @category = Category.new(category_params)
-      #@category.save
-    end
-    if @post.save and @category.save
+ 
+    if @post.save
+      if @category = Category.where(category_params).take
+      else
+        @category = Category.new(category_params)
+        @category.save
+      end
       @post_category = PostsCategory.new(:category_id => @category.id, :post_id => @post.id)
       @post_category.save
 
@@ -34,7 +35,7 @@ class PostsController < ApplicationController
   
   private
     def post_params
-      params.require(:post).permit(:title, :content, :category_title)
+      params.require(:post).permit(:title, :content)
     end
 
     def category_params

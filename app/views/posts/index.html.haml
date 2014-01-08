@@ -42,13 +42,12 @@
           %td
             %dl
               %dt.lead #{post.title}
-              - post.posts_categories.each do |post_category|
-                - category = Category.find_by_id(post_category.category_id)
-                %dt #{category.category_title}
+              - post.categories.each do |category|
+                %dt.list_category #{category.category_title}
               %dd
                 = truncate(strip_tags(post.content), length: 80)
             
-            %td.right
+            %td.list_actions
               = link_to 'Read', post
 
     %br
