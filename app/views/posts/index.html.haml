@@ -32,24 +32,23 @@
 .container
   %h1 Listing posts
   #side
-    - if @current_user
-      .panel
-        .panel-heading 
-          %h3.panel-title #{@current_user.username}
-        .panel-body Detail
-        %a.btn.btn-default{:href => 'newpost', :role => 'button'} New Paper
+
+    %a.btn.btn-default{:href => 'newpost', :role => 'button'} New Paper
   #main
     %table.table.table-striped
 
       - @posts.each do |post|
         %tr
-          %td.list_description
+          %td
             %dl
               %dt.lead #{post.title}
-              %dd.pull-right
+              - post.posts_categories.each do |post_category|
+                - category = Category.find_by_id(post_category.category_id)
+                %dt #{category.category_title}
+              %dd
                 = truncate(strip_tags(post.content), length: 80)
             
-            %td.list_actions
+            %td.right
               = link_to 'Read', post
 
     %br
