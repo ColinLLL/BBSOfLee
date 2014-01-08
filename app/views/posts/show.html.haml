@@ -32,11 +32,31 @@
 
   %table
     %tr
-      %td.list_description
+      %td
         %dl
           %dt.lead #{@post.title}
           %dd
             - strip_tags(@post.content).split("\n").each do |ipa|
               %p.list-group-item-text #{ipa}
+        - @post.categories.each do |category|
+          %dt.list_category #{category.category_title}
+
+  %h3{:style => "background-color:gray;line-height: 20px; padding: 5px;"} View Comments
+  .list-group
+  - @post.comments.each do |comment|
+    %p.list-group-item-text{:style => "line-height: 20px; padding: 5px;background-color:#f1f1f1;"} geust says:
+    %p.list-group-item-text{:style => "line-height: 20px; padding: 5px;"} #{comment.body}
+
+  %h3{:style => "background-color:gray;line-height: 20px; padding: 5px;"} Leave a comment
+  %p.subtit
+    Type your comment:
+  = form_for([@post, @post.comments.build]) do |f|
+    %p
+      %label{:for => "comment_body"} 
+      %br/
+      %textarea.form-control{:id => "comment_body", :name => "comment[body]", :rows => "10"}
+
+    %p
+      %button.btn.btn-sm.btn-primary{:type => "submit", :style => "margin-top: 20px"} Commit
 
   = link_to 'Back', posts_path

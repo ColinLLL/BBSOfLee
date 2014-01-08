@@ -4,4 +4,6 @@ class Post < ActiveRecord::Base
   has_many :categories, through: :posts_categories
 
   has_many :posts_categories
+
+  has_many :comments
 end
