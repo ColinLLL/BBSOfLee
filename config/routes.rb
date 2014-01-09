@@ -5,7 +5,7 @@ BBSOfLee::Application.routes.draw do
 
   resources :users
 
-  get 'newpost', to: 'posts#new'
+  get 'new', to: 'posts#new'
 
   get 'logout', to: 'session#destroy'
 
