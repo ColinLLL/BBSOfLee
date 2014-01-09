@@ -24,19 +24,19 @@
     = form_for @user do |f|
       - if @user.errors.any?
         #error_explanation
-          %h2
-            = pluralize(@user.errors.count, "error")
-            prohibited this user from being registered:
-          %ul
-            - @user.errors.full_messages.each do |msg|
-              %li= msg
+          
+          - @user.errors.full_messages.each do |msg|
+            .alert.alert-danger.alert-dismissable
+              %button.close{:type => "button", "data-dismiss" => "alert", "aria-hidden" => "true"} &times
+              %strong Warning!
+              %p= msg
+
       %fieldset{:style => "margin-top: 100px;"}
-        %legend Enter User Information
-        %input.form-control{:id => "user_username", :name => "user[username]", :type => "text", :placeholder => "Username", :style => "magrin: 20px;"}
-        %input.form-control{:id => "user_email", :name => "user[email]", :type => "email", :placeholder => "Email", :style => "magrin: 20px;"}
-        %input.form-control{:id => "user_password", :name => "user[password]", :type => "password", :placeholder => "Password", :style => "magrin: 20px;"}
-        %input.form-control{:id => "user_password_confirmation", :name => "user[password_confirmation]", :type => "password", :placeholder => "Password Confirmation", :style => "magrin: 20px;"}
-        .checkbox
+        %legend{:style => "margin: 20px;"} Enter User Information
+        %input.form-control{:id => "user_username", :name => "user[username]", :type => "text", :placeholder => "Username", :style => "margin: 20px;"}
+        %input.form-control{:id => "user_email", :name => "user[email]", :type => "email", :placeholder => "Email", :style => "margin: 20px;"}
+        %input.form-control{:id => "user_password", :name => "user[password]", :type => "password", :placeholder => "Password", :style => "margin: 20px;"}
+        %input.form-control{:id => "user_password_confirmation", :name => "user[password_confirmation]", :type => "password", :placeholder => "Password Confirmation", :style => "margin: 20px;"}
+        .checkbox{:style => "margin: 20px;"}
           %input{:type => "checkbox"} Check me out
-        .form-group 
-          %button.btn.btn-lg.btn-primary.btn-block{:type => "submit"} Register 
+        %button.btn.btn-lg.btn-primary.btn-block{:style => "margin: 20px;", :type => "submit"} Register 

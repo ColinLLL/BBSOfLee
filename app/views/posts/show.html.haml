@@ -20,9 +20,9 @@
       %ul.nav.navbar-nav.navbar-right
         - if @current_user
           %li
-            %a Hello, world! #{@current_user.username}
+            %a #{@current_user.username}
           %li.active
-            %a{:href => "posts", :role => "button"} MyPosts
+            %a{:href => "../posts", :role => "button"} MyPosts
           %li
             =link_to 'Logout', logout_path
         - else
@@ -32,7 +32,7 @@
             =link_to 'Register', register_path
 .container
 
-  %table
+  %table{:style => "margin: 20px;"}
     %tr
       %td
         %dl
@@ -41,24 +41,23 @@
             - strip_tags(@post.content).split("\n").each do |ipa|
               %p.list-group-item-text #{ipa}
         - @post.categories.each do |category|
-          %dt.list_category #{category.category_title}
+          %dt.label.label-primary #{category.category_title}
 
-  %h3{:style => "background-color:gray;line-height: 20px; padding: 5px;"} View Comments
+  %legend{:style => "margin: 20px;"} View Comments
   .list-group
   - @post.comments.each do |comment|
-    %p.list-group-item-text{:style => "line-height: 20px; padding: 5px;background-color:#f1f1f1;"}  #{comment.user.username}  says:
-    %p.list-group-item-text{:style => "line-height: 20px; padding: 5px;"} #{comment.body}
+    %p.list-group-item-text{:style => "line-height: 20px; padding: 5px;background-color:#f1f1f1;margin: 20px;"}  #{comment.user.username}  says: #{comment.body}
 
-  %h3{:style => "background-color:gray;line-height: 20px; padding: 5px;"} Leave a comment
-  %p.subtit
+  %legend{:style => "margin: 20px;"} Leave a comment
+  %p.subtit{:style => "margin: 20px;"}
     Type your comment:
   = form_for([@post, @post.comments.build]) do |f|
-    %p
+    %p{:style => "margin: 20px;"}
       %label{:for => "comment_body"} 
       %br/
-      %textarea.form-control{:id => "comment_body", :name => "comment[body]", :rows => "10"}
+      %textarea.form-control{:id => "comment_body", :name => "comment[body]", :rows => "5", :style => "width:50%;"}
 
-    %p
+    %p{:style => "margin: 20px;"}
       %button.btn.btn-sm.btn-primary{:type => "submit", :style => "margin-top: 20px"} Commit
 
   = link_to 'Back', posts_path

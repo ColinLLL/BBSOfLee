@@ -20,7 +20,7 @@
       %ul.nav.navbar-nav.navbar-right
         - if @current_user
           %li
-            %a Hello, world! #{@current_user.username}
+            %a #{@current_user.username}
           %li.active
             %a{:href => "posts", :role => "button"} MyPosts
           %li
@@ -47,7 +47,7 @@
       %h3 Add category
       %p.subtit
         Posts tagged (Add Tag, your content can be more people see)
-      %input.form-control{:name => "category[category_title]", :maxlength => "100", :style => "width:60%; height:30px;", :type => "text"}
+      %input.form-control.tm-input{:name => "category[category_title]", :maxlength => "100", :style => "width:60%; height:30px;", :type => "text"}
     
       %p
         %button.btn.btn-sm.btn-primary{:type => "submit", :style => "margin-top: 20px"} Commit

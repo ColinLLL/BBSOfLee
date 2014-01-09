@@ -21,10 +21,10 @@
 .form-signin
   = form_tag do
     %fieldset{:style => "margin-top: 100px;"}
-      %legend.form-signin-heading Please Login in
-      %input.form-control{:id => "email", :name => "email", :type => "email", :placeholder => "Email address"}
+      %legend.form-signin-heading{:style => "margin: 20px;"} Please Log in
+      %input.form-control{:style => "margin: 20px;", :id => "email", :name => "email", :type => "email", :placeholder => "Email address"}
           
-      %input.form-control{:id => "password", :name => "password", :type => "password", :placeholder => "Password"} 
-      .checkbox
+      %input.form-control{:style => "margin: 20px;", :id => "password", :name => "password", :type => "password", :placeholder => "Password"} 
+      .checkbox{:style => "margin: 20px;"}
         %input{:type => "checkbox"} Remember me
-      %button.btn.btn-lg.btn-primary.btn-block{:type => "submit"} Login
+      %button.btn.btn-lg.btn-primary.btn-block{:style => "margin: 20px;", :type => "submit"} Login

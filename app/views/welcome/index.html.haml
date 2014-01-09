@@ -20,7 +20,7 @@
       %ul.nav.navbar-nav.navbar-right
         - if @current_user
           %li
-            %a Hello, world! #{@current_user.username}
+            %a #{@current_user.username}
           %li.active
             %a{:href => "posts", :role => "button"} MyPosts
           %li
