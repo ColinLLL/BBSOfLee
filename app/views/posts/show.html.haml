@@ -30,34 +30,31 @@
             =link_to 'Login', login_path
           %li
             =link_to 'Register', register_path
-.container
+#main.container{:style => "width:700px;margin-top: 180px;margin-left: 50px;raduis:0px;"}
+  .jumbotron{:style => "padding-left: 10px;padding-right: 10px;padding-top: 5px;padding-bottom: 20px;"}
+    %h3.entry-title{:style => "margin: 20px;"} #{@post.title}
+    .info.leader{:style => "border-bottom: 1px solid #ddd; background-color: white;"}
+      - @post.categories.each do |category|
+        %a.node{:href => "#", :style => "padding:1px 5px;color:#778087;background-color:#f5f5f5;"} #{category.category_title}
+        by 
+      %a{"data-author" => "true", :href => "#", :style => "text-decoration: underline;"} #{@post.user.username}
+      %abbr.timeago published at #{@post.updated_at}
+    %dd{:style => "background-color: white;"}
+      - strip_tags(@post.content).split("\n").each do |ipa|
+        %p.list-group-item-text #{ipa}
+  .jumbotron{:style => "padding-left: 10px;padding-right: 10px;padding-top: 5px;padding-bottom: 20px;"}
+    %h3.entry-title{:style => "margin: 20px;margin-top: 0;border-bottom: 1px solid #ddd;"} Comments
+    .list-group
+    - @post.comments.each do |comment|
+      %p.list-group-item-text{:style => "line-height: 20px; padding: 5px;background-color:#f1f1f1;margin: 20px;background-color: white;"}  #{comment.user.username}  says: #{comment.body}
+  .jumbotron{:style => "padding-left: 10px;padding-right: 10px;padding-top: 5px;padding-bottom: 20px;"}
+    %h3.entry-title{:style => "margin: 20px;margin-top: 0;border-bottom: 1px solid #ddd;"}  Type your comment:
+    = form_for([@post, @post.comments.build]) do |f|
+      %p{:style => "margin: 20px;"}
+        %label{:for => "comment_body"} 
+        %br/
+        %textarea.form-control{:id => "comment_body", :name => "comment[body]", :rows => "5", :style => "width:80%;"}
 
-  %table{:style => "margin: 20px;"}
-    %tr
-      %td
-        %dl
-          %h3.head #{@post.title}
-          %dd
-            - strip_tags(@post.content).split("\n").each do |ipa|
-              %p.list-group-item-text #{ipa}
-        - @post.categories.each do |category|
-          %dt.label.label-primary #{category.category_title}
-
-  %legend{:style => "margin: 20px;"} View Comments
-  .list-group
-  - @post.comments.each do |comment|
-    %p.list-group-item-text{:style => "line-height: 20px; padding: 5px;background-color:#f1f1f1;margin: 20px;"}  #{comment.user.username}  says: #{comment.body}
-
-  %legend{:style => "margin: 20px;"} Leave a comment
-  %p.subtit{:style => "margin: 20px;"}
-    Type your comment:
-  = form_for([@post, @post.comments.build]) do |f|
-    %p{:style => "margin: 20px;"}
-      %label{:for => "comment_body"} 
-      %br/
-      %textarea.form-control{:id => "comment_body", :name => "comment[body]", :rows => "5", :style => "width:50%;"}
-
-    %p{:style => "margin: 20px;"}
-      %button.btn.btn-sm.btn-primary{:type => "submit", :style => "margin-top: 20px"} Commit
-
-  = link_to 'Back', posts_path
+      %p{:style => "margin: 20px;"}
+        %button.btn.btn-sm.btn-primary{:type => "submit", :style => "margin-top: 20px"} Commit
+      = link_to 'Back', posts_path

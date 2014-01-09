@@ -19,6 +19,11 @@
         %li.active
           =link_to 'Register', register_path
 .form-signin
+  - if flash[:alert]
+    %p.alert.alert-danger.alert-dismissable{:style => "margin: 20px;"}
+      %button.close{:type => "button", "data-dismiss" => "alert", "aria-hidden" => "true"} &times
+      %strong Warning!
+      = flash[:alert]
   = form_tag do
     %fieldset{:style => "margin-top: 100px;"}
       %legend.form-signin-heading{:style => "margin: 20px;"} Please Log in
