@@ -22,7 +22,7 @@
           %li
             %a #{@current_user.username}
           %li.active
-            %a{:href => "../posts", :role => "button"} MyPosts
+            %a{:href => "../myposts", :role => "button"} MyPosts
           %li
             =link_to 'Logout', logout_path
         - else
@@ -36,7 +36,7 @@
     %tr
       %td
         %dl
-          %dt.lead #{@post.title}
+          %h3.head #{@post.title}
           %dd
             - strip_tags(@post.content).split("\n").each do |ipa|
               %p.list-group-item-text #{ipa}

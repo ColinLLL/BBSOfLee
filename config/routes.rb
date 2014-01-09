@@ -9,6 +9,8 @@ BBSOfLee::Application.routes.draw do
 
   get 'logout', to: 'session#destroy'
 
+  get 'myposts', to: 'posts#myindex'
+
   controller :session do
     get 'login' => :new
     post 'login' => :create
