@@ -50,7 +50,7 @@
             %a.node{:href => "#", :style => "padding:1px 5px;color:#778087;background-color:#f5f5f5;"} #{category.category_title}
             by 
           %a{"data-author" => "true", :href => "#", :style => "text-decoration: underline;"} #{@post.user.username}
-          %abbr.timeago published at #{@post.updated_at}
+          %abbr.timeago published at #{@post.updated_at.to_formatted_s(:db)}
         %dd{:style => "background-color: white;"}
           - strip_tags(@post.content).split("\n").each do |ipa|
             %p.list-group-item-text #{ipa}
@@ -58,7 +58,7 @@
         %h3.entry-title{:style => "margin: 20px;margin-top: 0;border-bottom: 1px solid #ddd;"} Comments
         .list-group
         - @post.comments.each do |comment|
-          %p.list-group-item-text{:style => "line-height: 20px; padding: 5px;background-color:#f1f1f1;margin: 20px;background-color: white;"}  #{comment.user.username}  says: #{comment.body}
+          %p.list-group-item-text{:style => "line-height: 20px; padding: 5px;background-color:#f1f1f1;margin: 20px;background-color: white;"}  #{comment.user.username} at #{comment.updated_at.to_formatted_s(:db) } said: #{comment.body}
       .jumbotron{:style => "padding-left: 10px;padding-right: 10px;padding-top: 5px;padding-bottom: 20px;"}
         %h3.entry-title{:style => "margin: 20px;margin-top: 0;border-bottom: 1px solid #ddd;"}  Type your comment:
         = form_for([@post, @post.comments.build]) do |f|

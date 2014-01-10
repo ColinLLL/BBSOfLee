@@ -21,6 +21,7 @@ gem 'bcrypt-ruby'
 gem 'bootstrap-sass'
 gem 'rails_12factor', group: :production
 gem 'validates_email_format_of'
+gem 'tzinfo'
 
 gem 'jbuilder', '~> 1.2'
 

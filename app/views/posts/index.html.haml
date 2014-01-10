@@ -16,13 +16,13 @@
         %li
           %a{:href => "#contact"} Contact
         %li
-          %a{:href => "posts", :role => "button"} Posts
+          %a{:href => "/posts", :role => "button"} Posts
       %ul.nav.navbar-nav.navbar-right
         - if @current_user
           %li
             %a #{@current_user.username}
           %li.active
-            %a{:href => "myposts", :role => "button"} MyPosts
+            %a{:href => "/myposts", :role => "button"} MyPosts
           %li
             =link_to 'Logout', logout_path
         - else
