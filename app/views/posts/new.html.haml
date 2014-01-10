@@ -30,24 +30,41 @@
             =link_to 'Login', login_path
           %li
             =link_to 'Register', register_path
-.container
-  .form{:role => "form"}
-    = form_for @post do |f|
-      %fieldset
-        %h3 Edit your post
+.container{:style => "width:1000px;margin-top: auto; margin-left: auto; raduis:0px;"}
+  %ul.breadcrumb.menu.clearfix
+    %li
+      %a{:href => "/"} Home
+      %span.divider
+    %li.active
+      %a{:href => "/posts"} posts
 
-        .form-group
-          %label.lead{:for => "Title"} Title
-          %input.form-control{:id => "post_title", :name => "post[title]", :type => "text"}
-        .form-group
-          %label.lead{:for => "Content"} Content
+  .container-fluid
+
+  .content{:style => "width:220px; margin-top: 0; margin-right: 0; margin-left: 750px; raduis:0px;position: absolute;text-align:center;"}
+    .jumbotron{:style => "padding-left: 10px;padding-right: 10px;padding-top: 5px;padding-bottom: 20px;"}
+      .box
+      %h4.entry-title{:style => "margin: 20px;border-bottom: 1px solid #ddd; background-color: white;"} Testing
+      .content
+        %a.btn.btn-success{:href => 'new', :role => 'button', :style => "margin: auto;"} New Paper
+  .content{:style => "width:700px;margin-top: auto; margin-right: 260px; raduis:0px;position: absolute;"}
+    .form{:role => "form"}
+      = form_for @post do |f|
+        %fieldset
+        .jumbotron{:style => "padding-left: 10px;padding-right: 10px;padding-top: 5px;padding-bottom: 20px;"}
+          %h3.entry-title Edit your post
+
+          .form-group
+            %p.subtit{:for => "Title"} Title
+            %input.form-control{:id => "post_title", :name => "post[title]", :type => "text"}
+          .form-group
+            %p.subtit{:for => "Content"} Content
         
-          %textarea.form-control{:id => "post_content", :name => "post[content]", :rows => "30"}
-
-      %h3 Add category
-      %p.subtit
-        Posts tagged (Add Tag, your content can be more people see)
-      %input.form-control.tm-input{:name => "category[category_title]", :maxlength => "100", :style => "width:60%; height:30px;", :type => "text"}
+            %textarea.form-control{:id => "post_content", :name => "post[content]", :rows => "30"}
+      .jumbotron{:style => "padding-left: 10px;padding-right: 10px;padding-top: 5px;padding-bottom: 20px;"}
+        %h3.entry-title Add category
+        %p.subtit
+          Posts tagged (Add Tag, your content can be more people see)
+        %input.form-control.tm-input{:name => "category[category_title]", :maxlength => "100", :style => "width:60%; height:30px;", :type => "text"}
     
-      %p
-        %button.btn.btn-sm.btn-primary{:type => "submit", :style => "margin-top: 20px"} Commit
+        %p
+          %button.btn.btn-sm.btn-primary{:type => "submit", :style => "margin-top: 20px"} Commit

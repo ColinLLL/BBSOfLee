@@ -16,13 +16,13 @@
         %li
           %a{:href => "#contact"} Contact
         %li
-          %a{:href => "/posts", :role => "button"} Posts
+          %a{:href => "posts", :role => "button"} Posts
       %ul.nav.navbar-nav.navbar-right
         - if @current_user
           %li
             %a #{@current_user.username}
           %li.active
-            %a{:href => "/myposts", :role => "button"} MyPosts
+            %a{:href => "myposts", :role => "button"} MyPosts
           %li
             =link_to 'Logout', logout_path
         - else
@@ -30,25 +30,36 @@
             =link_to 'Login', login_path
           %li
             =link_to 'Register', register_path
+.container{:style => "width:1000px;margin-top: auto; margin-left: auto; raduis:0px;"}
+  %ul.breadcrumb.menu.clearfix
+    %li
+      %a{:href => "/"} Home
+      %span.divider
+    %li.active
+      %a{:href => "/posts"} posts
 
-.container
-  %h1 Listing posts
-  #side
+  .container-fluid
+    
+    .content{:style => "width:700px;margin-top: auto; margin-right: 260px; raduis:0px;position: absolute;"}
+      .jumbotron{:style => "padding-left: 10px;padding-right: 10px;padding-top: 5px;padding-bottom: 20px;"}
+        %h3.entry-title{:style => "margin: 20px;"} Listing posts
 
-    %a.btn.btn-default{:href => 'new', :role => 'button'} New Paper
-  #main
-    %table.table.table-striped
+        %table.table.table-striped
 
-      - @posts.each do |post|
-        %tr
-          %td
-            %dl
-              %dt.lead 
-                = link_to post.title, post
+          - @posts.each do |post|
+            %tr
+              %td
+                %dl
+                  %dt.lead 
+                    = link_to post.title, post
               
-              %dd
-                = truncate(strip_tags(post.content), length: 80)
-              - post.categories.each do |category|
-                %dt.label.label-primary #{category.category_title}
-
-    %br
+                  %dd
+                    = truncate(strip_tags(post.content), length: 80)
+                  - post.categories.each do |category|
+                    %dt.label.label-primary #{category.category_title}
+  .content{:style => "width:220px; margin-top: 0; margin-right: 0; margin-left: 750px; raduis:0px;position: absolute;text-align:center;"}
+    .jumbotron{:style => "padding-left: 10px;padding-right: 10px;padding-top: 5px;padding-bottom: 20px;"}
+      .box
+      %h4.entry-title{:style => "margin: 20px;border-bottom: 1px solid #ddd; background-color: white;"} Testing
+      .content
+        %a.btn.btn-success{:href => 'new', :role => 'button', :style => "margin: auto;"} New Paper
