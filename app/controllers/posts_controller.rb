@@ -13,8 +13,13 @@ class PostsController < ApplicationController
   end
 
   def new
-  	@post = Post.new
-    @current_user = User.find_by_id(session[:user_id])
+  	#@post = Post.new
+    if @current_user = User.find_by_id(session[:user_id])
+      @post = Post.new
+    else
+      redirect_to login_path
+    end
+    #@current_user = User.find_by_id(session[:user_id])
   end
 
   def show
