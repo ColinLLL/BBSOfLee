@@ -44,13 +44,13 @@
     #main.content
       .jumbotron
         %h3 #{@post.title}
-        .info.leader{:style => "font-size: 12px;"}
+        .info.leader
           - @post.categories.each do |category|
             %a.node{:href => "#"} #{category.category_title}
             by 
-          %a #{@post.user.username}
+          %a#user #{@post.user.username}
           %abbr.timeago published at #{@post.updated_at.to_formatted_s(:long_ordinal)}
-        %dd{:style => "font-size: 14px;"} #{@post.content}
+        %dd #{@post.content}
         %dd#good_bad
           %button.btn.btn-default.btn-lg{:type => "button"}
             %span.glyphicon.glyphicon-thumbs-up
@@ -60,7 +60,7 @@
         %h3.entry-title Comments
         .list-group
         - @post.comments.each do |comment|
-          %p.list-group-item-text{:style => "font-size: 14px;"}  #{comment.user.username} at #{comment.updated_at.to_formatted_s(:long_ordinal) } said: #{comment.body}
+          %p.list-group-item-text  #{comment.user.username} at #{comment.updated_at.to_formatted_s(:long_ordinal) } said: #{comment.body}
       .jumbotron
         %h3.entry-title Type your comment:
         = form_for([@post, @post.comments.build]) do |f|

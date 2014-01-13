@@ -23,14 +23,18 @@
     .jumbotron {
 
       a {
-        text-decoration: underline;
+        
         margin: auto;
-      }
 
-      .node {
-        padding:1px 5px;
-        color: white;
-        background-color: blue;
+        .node {
+          padding:1px 5px;
+          color: white;
+          background-color: blue;
+        }
+
+        #user {
+          text-decoration: underline;
+        }
       }
 
       dd {
