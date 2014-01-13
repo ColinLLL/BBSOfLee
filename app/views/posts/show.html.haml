@@ -44,14 +44,14 @@
     #main.content
       .jumbotron
         %h3 #{@post.title}
-        .info.leader
+        .info.leader{:style => "margin-left: 20px;font-size: 12px;"}
           - @post.categories.each do |category|
             - category.category_title.split(",").each do |item_title|
               %a.label.label-primary{:href => "#"} #{item_title}
           by
           %a#user #{@post.user.username}
           %abbr.timeago published at #{@post.updated_at.to_formatted_s(:long_ordinal)}
-        %div#content #{@post.content}
+        %div#content{:style => "margin-left: 20px; font-size: 14px;"} #{@post.content}
         %div#good_bad
           %button.btn.btn-default.btn-lg{:type => "button"}
             %span.glyphicon.glyphicon-thumbs-up
