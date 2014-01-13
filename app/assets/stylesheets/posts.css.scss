@@ -35,16 +35,16 @@
 
       dd {
         font-size: 14px;
-      }
+        
+        #good_bad {
+          text-align:center;
+        }
 
-      #good_bad {
-        text-align:center;
       }
-
+      
       .info.leader{
         font-size: 12px;
-        border-bottom: 1px solid #ddd; 
-        background-color: white;
+        border-bottom: 1px solid #ddd;
       }
 
       p {

@@ -41,7 +41,7 @@
     %li.active
       %a current post
   .container-fluid
-    #main.content{:style => "width: 700px; margin-top: auto; margin-right: 260px; position: absolute;"}
+    #main.content
       .jumbotron
         %h3 #{@post.title}
         .info.leader
@@ -60,7 +60,7 @@
         %h3.entry-title Comments
         .list-group
         - @post.comments.each do |comment|
-          %p.list-group-item-text{:style => "font-size: 14px;"}  #{comment.user.username} at #{comment.updated_at.to_formatted_s(:long_ordinal) } said: #{comment.body}
+          %p.list-group-item-text #{comment.user.username} at #{comment.updated_at.to_formatted_s(:long_ordinal) } said: #{comment.body}
       .jumbotron
         %h3.entry-title Type your comment:
         = form_for([@post, @post.comments.build]) do |f|
@@ -71,7 +71,7 @@
           %p
             %button.btn.btn-sm.btn-primary{:type => "submit"} Commit
           = link_to 'Back', posts_path
-    #side.content{:style => "width: 220px; margin-top: auto; margin-right: 0; margin-left: 750px; position: absolute; text-align:center;"}
+    #side.content
       .jumbotron
         .box
         %h4.entry-title Testing
