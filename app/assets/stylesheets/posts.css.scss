@@ -25,17 +25,17 @@
       a {
         text-decoration: underline;
         margin: auto;
-          
-        .node {
-          padding:1px 5px;
-          color: #778087;
-          background-color: #f5f5f5;
-        }
+      }
+
+      .node {
+        padding:1px 5px;
+        color: white;
+        background-color: blue;
       }
 
       dd {
         font-size: 14px;
-        
+
         #good_bad {
           text-align:center;
         }

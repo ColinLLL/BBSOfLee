@@ -39,7 +39,7 @@
       %a{:href => "/posts"} posts
 
   .container-fluid
-    #main.content{:style => "width: 700px; margin-top: auto; margin-right: 260px; position: absolute;"}
+    #main.content
       .form{:role => "form"}
         = form_for @post do |f|
           %fieldset
@@ -60,7 +60,7 @@
     
             %p
               %button.btn.btn-sm.btn-primary{:type => "submit"} Commit
-    #side.content{:style => "width: 220px; margin-top: auto; margin-right: 0; margin-left: 750px; position: absolute; text-align:center;"}
+    #side.content
       .jumbotron
         .box
         %h4.entry-title Testing

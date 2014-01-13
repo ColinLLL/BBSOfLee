@@ -40,7 +40,7 @@
 
   .container-fluid
     
-    #main.content{:style => "width: 700px; margin-top: auto; margin-right: 260px; position: absolute;"}
+    #main.content
       .jumbotron
         %h3.entry-title Listing posts
 
@@ -57,7 +57,7 @@
                     = truncate(strip_tags(post.content), length: 80)
                   - post.categories.each do |category|
                     %dt.label.label-primary #{category.category_title}
-    #side.content{:style => "width: 220px; margin-top: auto; margin-right: 0; margin-left: 750px; position: absolute; text-align:center;"}
+    #side.content
       .jumbotron
         .box
         %h4.entry-title Testing
