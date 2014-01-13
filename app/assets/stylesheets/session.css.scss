@@ -1,45 +1,33 @@
-.form-signin {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  max-width: 330px;
-  padding: 10px;
-  margin: 0 auto;
-}
+.session {
 
-.form-signin fieldset{
-  margin-top: 80px;
-}
+  .form-signin {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 500px;
+    padding: 10px;
+    margin: 0 auto;
+  }
 
-.form-signin.form-signin-heading,.form-signin.checkbox {
-  margin-bottom: 10px;
-}
+  fieldset {
+    margin-top: 100px;
+  }
 
-.form-signin.checkbox {
-  font-weight: normal;
-}
+  legend {
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
 
-.form-signin.form-control:focus {
-  z-index: 2;
-}
+  button {
+    margin-bottom: 20px;
+  }
 
-.form-signin .form-control {
-  position: relative;
-  font-size: 16px;
-  height: auto;
-  padding: 10px;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-}
+  input {
+    margin-bottom: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 
-.form-signin input[type="text"] {
-  margin-bottom: -1px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.form-signin input[type="password"] {
-  margin-bottom: -1px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  .checkbox {
+    margin-bottom: 20px;
+  }
 }
