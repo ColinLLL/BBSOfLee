@@ -46,8 +46,9 @@
         %h3 #{@post.title}
         .info.leader{:style => "font-size: 12px;"}
           - @post.categories.each do |category|
-            %a.node{:href => "#", :style => "text-decoration: none; color: #778087; background-color: blue;"} #{category.category_title}
-            by 
+            - category.category_title.split(",").each do |item_title|
+              %a.label.label-primary{:href => "#", :style => "text-decoration: none;"} #{item_title}
+          by
           %a#user{:style => "text-decoration: underline;"} #{@post.user.username}
           %abbr.timeago published at #{@post.updated_at.to_formatted_s(:long_ordinal)}
         %dd{:style => "font-size: 14px;"} #{@post.content}
