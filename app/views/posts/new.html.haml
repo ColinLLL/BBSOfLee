@@ -46,10 +46,10 @@
           .jumbotron
             %h3.entry-title Edit your post
 
-            .form-group{:style => "margin-left: 20px;"}
+            .form-group
               = f.label :title, {:class => "subtit"}
               = f.text_field :title, {:class => "form-control"}
-            .form-group{:style => "margin-left: 20px;"}
+            .form-group
               = f.label :content, {:class => "subtit"}
               = f.text_area :content, {:class => "form-control", :rows => "30", :data => {:provide => "markdown"}}
           #category.jumbotron
