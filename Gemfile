@@ -22,6 +22,10 @@ gem 'bootstrap-sass'
 gem 'rails_12factor', group: :production
 gem 'validates_email_format_of'
 gem 'tzinfo'
+gem 'redcarpet'
+gem 'rails-bootstrap-markdown'
+gem 'less-rails-bootstrap'
+gem 'kaminari'
 
 gem 'jbuilder', '~> 1.2'
 

@@ -1,7 +1,7 @@
 .navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
   .container
     .navbar-header
-      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+      %button.navbar-toggle{:type => "button", :date => { :target => ".navbar-collapse", :toggle => "collapse"}}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
@@ -16,13 +16,13 @@
         %li
           %a{:href => "#contact"} Contact
         %li
-          %a{:href => "posts", :role => "button"} Posts
+          %a{:href => "/posts", :role => "button"} Posts
       %ul.nav.navbar-nav.navbar-right
         - if @current_user
           %li
             %a #{@current_user.username}
           %li.active
-            %a{:href => "myposts", :role => "button"} MyPosts
+            %a{:href => "/myposts", :role => "button"} MyPosts
           %li
             =link_to 'Logout', logout_path
         - else
@@ -30,7 +30,7 @@
             =link_to 'Login', login_path
           %li
             =link_to 'Register', register_path
-.container{:style => "width:1000px;margin-top: auto; margin-left: auto; raduis:0px;"}
+#index.container
   %ul.breadcrumb.menu.clearfix
     %li
       %a{:href => "/"} Home
@@ -40,9 +40,9 @@
 
   .container-fluid
     
-    .content{:style => "width:700px;margin-top: auto; margin-right: 260px; raduis:0px;position: absolute;"}
-      .jumbotron{:style => "padding-left: 10px;padding-right: 10px;padding-top: 5px;padding-bottom: 20px;"}
-        %h3.entry-title{:style => "margin: 20px;"} Listing posts
+    #main.content{:style => "width: 700px; margin-top: auto; margin-right: 260px; position: absolute;"}
+      .jumbotron
+        %h3.entry-title Listing posts
 
         %table.table.table-striped
 
@@ -57,9 +57,9 @@
                     = truncate(strip_tags(post.content), length: 80)
                   - post.categories.each do |category|
                     %dt.label.label-primary #{category.category_title}
-  .content{:style => "width:220px; margin-top: 0; margin-right: 0; margin-left: 750px; raduis:0px;position: absolute;text-align:center;"}
-    .jumbotron{:style => "padding-left: 10px;padding-right: 10px;padding-top: 5px;padding-bottom: 20px;"}
-      .box
-      %h4.entry-title{:style => "margin: 20px;border-bottom: 1px solid #ddd; background-color: white;"} Testing
-      .content
-        %a.btn.btn-success{:href => 'new', :role => 'button', :style => "margin: auto;"} New Paper
+    #side.content{:style => "width: 220px; margin-top: auto; margin-right: 0; margin-left: 750px; position: absolute; text-align:center;"}
+      .jumbotron
+        .box
+        %h4.entry-title Testing
+        .content
+          %a.btn.btn-success{:href => 'new', :role => 'button'} New Paper

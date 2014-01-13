@@ -1,7 +1,7 @@
 .navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
   .container
     .navbar-header
-      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+      %button.navbar-toggle{:type => "button", :date => { :target => ".navbar-collapse", :toggle => "collapse"}}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
@@ -18,18 +18,19 @@
       %ul.nav.navbar-nav.navbar-right
         %li.active
           =link_to 'Register', register_path
-.form-signin
-  - if flash[:alert]
-    %p.alert.alert-danger.alert-dismissable{:style => "margin: 20px;"}
-      %button.close{:type => "button", "data-dismiss" => "alert", "aria-hidden" => "true"} &times
-      %strong Warning!
-      = flash[:alert]
-  = form_tag do
-    %fieldset{:style => "margin-top: 100px;"}
-      %legend.form-signin-heading{:style => "margin: 20px;"} Please Log in
-      %input.form-control{:style => "margin: 20px;", :id => "email", :name => "email", :type => "email", :placeholder => "Email address"}
-          
-      %input.form-control{:style => "margin: 20px;", :id => "password", :name => "password", :type => "password", :placeholder => "Password"} 
-      .checkbox{:style => "margin: 20px;"}
-        %input{:type => "checkbox"} Remember me
-      %button.btn.btn-lg.btn-primary.btn-block{:style => "margin: 20px;", :type => "submit"} Login
+.container
+  .form-signin{:role => "form"}
+    - if flash[:alert]
+      %p.alert.alert-danger.alert-dismissable{:style => "margin: 20px;"}
+        %button.close{:type => "button", "data-dismiss" => "alert", "aria-hidden" => "true"} &times
+        %strong Warning!
+        = flash[:alert]
+
+    = form_tag do
+      %fieldset
+        %legend Please Log in
+        = email_field_tag :email, params[:email], {:class => "form-control", :placeholder => "Email"}
+        = password_field_tag :password, params[:password], {:class => "form-control", :placeholder => "Password"}
+        = check_box_tag :email
+        = label_tag "Remember me"
+        %button.btn.btn-lg.btn-primary.btn-block{:type => "submit"} Login

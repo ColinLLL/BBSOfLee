@@ -1,25 +1,23 @@
 class PostsController < ApplicationController
   def index
     @current_user = User.find_by_id(session[:user_id])
-    @posts = Post.all
+    @posts = Post.page(params[:page]).per(5)
   end
 
   def myindex
     if @current_user = User.find_by_id(session[:user_id])
-      @posts = @current_user.posts.all
+      @posts = @current_user.posts.page(params[:page]).per(5)
     else
       redirect_to login_path
     end
   end
 
   def new
-  	#@post = Post.new
     if @current_user = User.find_by_id(session[:user_id])
       @post = Post.new
     else
       redirect_to login_path
     end
-    #@current_user = User.find_by_id(session[:user_id])
   end
 
   def show

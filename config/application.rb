@@ -6,6 +6,6 @@ Bundler.require(:default, Rails.env)
 
 module BBSOfLee
   class Application < Rails::Application
-    config.time_zone = 'Beijing'
+    config.time_zone = "Asia/Shanghai"
   end
 end

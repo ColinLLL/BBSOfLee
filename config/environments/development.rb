@@ -38,7 +38,7 @@ BBSOfLee::Application.configure do
     :port           => 25,
     :domain         => 'mail.163.com',
     :authentication => :login,
-    :user_name      => 'lilonglongfwz',
+    :user_name      => 'lilonglongfwzz',
     :password       => '130130'
   }
 end
