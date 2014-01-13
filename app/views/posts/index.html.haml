@@ -56,8 +56,10 @@
                   %dd
                     = truncate(strip_tags(post.content), length: 80)
                   - post.categories.each do |category|
-                    %dt.label.label-primary #{category.category_title}
-        = paginate @posts
+                    - category.category_title.split(",").each do |item_title|
+                      %a.label.label-primary{:href => "#"}  #{item_title}
+        #paginate
+          = paginate @posts
     #side.content
       .jumbotron
         .box

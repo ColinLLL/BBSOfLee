@@ -16,48 +16,74 @@
       .form-control {
         width: 60%; 
         height: 30px;
+        margin-left: 0;
       }
     }
 
 
     .jumbotron {
 
-      a {
-        margin: auto;
-
-        .node {
-          padding:1px 5px;
-          color: white;
-          background-color: blue;
-        }
+      #paginate {
+        margin-left: 20px;
       }
 
-      dd {
-        font-size: 14px;
+      div.md-editor.active {
+        margin-left: 0;
+      }
 
-        #good_bad {
-          text-align:center;
-          margin-top: 30px;
-        }
+      .form-group {
+        margin-left: 20px;
+      }
+      a {
+        margin: auto;
+      }
+      a.node {
+        padding:1px 5px;
+      }
+      a#user {
+        text-decoration: underline;
+      }
 
+      div#good_bad {
+        text-align:center;
+        margin-top: 30px;
       }
       
       .info.leader{
         font-size: 12px;
-        border-bottom: 1px solid #ddd;
+        margin-left: 20px;
+      }
+      div#content {
+        font-size: 14px;
+        margin-left: 20px;
+      }
+      div.md-header {
+        margin-left: 0;
       }
 
       p {
         margin: 20px;
 
-        .list-group-item-text {
-          line-height: 20px; 
-          font-size: 14px;
-          padding: 5px;
-        }
-
         button {
           margin-top: 20px;
+        }
+      }
+      p.list-group-item-text {
+        line-height: 20px; 
+        font-size: 14px;
+        padding: 5px;
+        font-size: 14px;
+      }
+
+      table.table.table-striped {
+        margin-left: 20px;
+        width: 90%;
+
+        td.lead {
+          font-size: 16px;
+        }
+        dd {
+          font-size: 14px;
         }
       }
     }

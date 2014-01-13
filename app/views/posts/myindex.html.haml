@@ -48,15 +48,18 @@
 
           - @posts.each do |post|
             %tr
-              %td
+              %td.lead 
+                = link_to post.title, post
                 %dl
-                  %dt.lead 
-                    = link_to post.title, post
+                  %dt
               
                   %dd
                     = truncate(strip_tags(post.content), length: 80)
                   - post.categories.each do |category|
-                    %dt.label.label-primary #{category.category_title}
+                    - category.category_title.split(",").each do |item_title|
+                      %a.label.label-primary{:href => "#"}  #{item_title}
+        #paginate
+          = paginate @posts
     #side.content
       .jumbotron
         .box
