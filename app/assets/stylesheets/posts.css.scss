@@ -33,11 +33,16 @@
         }
       }
 
+      dd {
+        font-size: 14px;
+      }
+
       #good_bad {
         text-align:center;
       }
 
       .info.leader{
+        font-size: 12px;
         border-bottom: 1px solid #ddd; 
         background-color: white;
       }
@@ -47,6 +52,7 @@
 
         .list-group-item-text {
           line-height: 20px; 
+          font-size: 14px;
           padding: 5px;
           background-color: #f1f1f1;
           background-color: white;

@@ -51,7 +51,7 @@
           %a #{@post.user.username}
           %abbr.timeago published at #{@post.updated_at.to_formatted_s(:long_ordinal)}
         %dd #{@post.content}
-        %dd#good_bad{:style => "text-align: center;"}
+        %dd#good_bad
           %button.btn.btn-default.btn-lg{:type => "button"}
             %span.glyphicon.glyphicon-thumbs-up
           %button.btn.btn-default.btn-lg{:type => "button"}
@@ -60,7 +60,7 @@
         %h3.entry-title Comments
         .list-group
         - @post.comments.each do |comment|
-          %p.list-group-item-text  #{comment.user.username} at #{comment.updated_at.to_formatted_s(:long_ordinal) } said: #{comment.body}
+          %p.list-group-item-text{:style => "font-size: 14px;"}  #{comment.user.username} at #{comment.updated_at.to_formatted_s(:long_ordinal) } said: #{comment.body}
       .jumbotron
         %h3.entry-title Type your comment:
         = form_for([@post, @post.comments.build]) do |f|
