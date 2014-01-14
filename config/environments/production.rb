@@ -77,4 +77,21 @@ BBSOfLee::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # set delivery method to :smtp, :sendmail or :test
+  config.action_mailer.delivery_method = :smtp
+
+  # these options are only needed if you choose smtp delivery
+  config.action_mailer.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => 587,
+    :domain         => 'heroku.com',
+    :authentication => :plain,
+    :user_name      => 'lilonglongfwz@163.com',
+    :password       => '130130aa',
+    :enable_starttls_auto => true
+  }
 end
