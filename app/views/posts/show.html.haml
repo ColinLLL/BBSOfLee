@@ -50,7 +50,7 @@
               %a.label.label-primary{:href => "#"} #{item_title}
           by
           %a#user #{@post.user.username}
-          %abbr.timeago published at #{@post.updated_at.to_formatted_s(:long_ordinal)}
+          %abbr.timeago published at #{@post.updated_at.strftime('%Y-%m-%d %H:%M:%S').to_s}
         %div#content #{@post.content}
         %div#good_bad
           %button.btn.btn-default.btn-lg{:type => "button"}
@@ -61,7 +61,7 @@
         %h3.entry-title Comments
         .list-group
         - @post.comments.each do |comment|
-          %p.list-group-item-text #{comment.user.username} at #{comment.updated_at.to_formatted_s(:long_ordinal) } said: #{comment.body}
+          %p.list-group-item-text #{comment.user.username} at #{comment.updated_at.strftime('%Y-%m-%d %H:%M:%S').to_s } said: #{comment.body}
       .jumbotron
         %h3.entry-title Type your comment:
         = form_for([@post, @post.comments.build]) do |f|
