@@ -11,8 +11,6 @@ BBSOfLee::Application.routes.draw do
 
   get 'myposts', to: 'posts#myindex'
 
-  #get 'forgetpassword', to: 'session#forgetpassword'
-
   controller :session do
     get 'login' => :new
     post 'login' => :create
@@ -20,6 +18,9 @@ BBSOfLee::Application.routes.draw do
 
     get 'forgetpassword' => :forgetpassword
     post 'forgetpassword' => :sendpassword
+
+    get 'changepassword' => :changepassword
+    post 'updatepassword' => :updatepassword
   end
 
   controller :users do

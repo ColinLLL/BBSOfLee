@@ -19,12 +19,17 @@
           %a{:href => "/posts", :role => "button"} Posts
       %ul.nav.navbar-nav.navbar-right
         - if @current_user
-          %li
-            %a #{@current_user.username}
-          %li.active
-            %a{:href => "/myposts", :role => "button"} MyPosts
-          %li
-            =link_to 'Logout', logout_path
+          %li.dropdown.open
+            %a.dropdown-toggle{:href => "#", :data => {:toggle => "dropdown"}} 
+              #{@current_user.username}
+              %b.caret
+            %ul.dropdown-menu
+              %li{:style => "float: right;"}
+                %a{:href => "myposts"} MyPosts
+              %li{:style => "float: right;"}
+                =link_to 'Logout', logout_path
+              %li{:style => "float: right;"}
+                =link_to 'Change Password', changepassword_path
         - else
           %li.active
             =link_to 'Login', login_path
