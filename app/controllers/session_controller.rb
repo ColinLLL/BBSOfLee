@@ -42,6 +42,20 @@ class SessionController < ApplicationController
   end
 
   def updatepassword
+    @user = User.find_by_id(session[:user_id])
+    if @user and @user.authenticate(params[:password])
+      @user.password = params[:new_password]
+      @user.password_confirmation = params[:new_password_confirmation]
+      if @user.save
+        redirect_to root_path
+      else
+        redirect_to changepassword_path
+      end
+      #@session[:user_id] = user.id
+      #redirect_to root_path
+    else
+      redirect_to changepassword_path, alert: "The email address or password is wrong"
+    end
   end
 
 end

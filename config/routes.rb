@@ -20,7 +20,7 @@ BBSOfLee::Application.routes.draw do
     post 'forgetpassword' => :sendpassword
 
     get 'changepassword' => :changepassword
-    post 'updatepassword' => :updatepassword
+    post 'changepassword' => :updatepassword
   end
 
   controller :users do
