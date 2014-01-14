@@ -12,6 +12,7 @@ class PostsController < ApplicationController
     end
   end
 
+
   def new
     if @current_user = User.find_by_id(session[:user_id])
       @post = Post.new

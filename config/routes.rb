@@ -11,10 +11,15 @@ BBSOfLee::Application.routes.draw do
 
   get 'myposts', to: 'posts#myindex'
 
+  get 'forgetpassword', to: 'session#forgetpassword'
+
   controller :session do
     get 'login' => :new
     post 'login' => :create
     delete 'logout' => :destroy
+
+    get 'forgetpassword' => :new
+    post 'forgetpassword' => :forgetpassword
   end
 
   controller :users do
