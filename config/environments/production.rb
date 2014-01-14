@@ -90,7 +90,7 @@ BBSOfLee::Application.configure do
     :port           => 587,
     :domain         => 'heroku.com',
     :authentication => :plain,
-    :user_name      => 'lilonglongfwz@163.com',
+    :user_name      => 'leelolo',
     :password       => '130130aa',
     :enable_starttls_auto => true
   }
